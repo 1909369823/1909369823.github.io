@@ -2,10 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
   
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
   
   <title>软件测试第二章：测试入门 | Hero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
   <meta name="description" content="测试入门1.软件产品的特点 是一种逻辑产品，与物质产品有很大的区别。  软件产品的生产主要是研制，生产成本主要在开发和研制，开发研制完成后，通过复制就产生了大量软件产品。  软件产品不会用坏，不存在磨损，消耗。  生产主要是脑力劳动，还末完全摆脱手工开发方式，大部分产品是”定做”的。   2. 什么是软件工程？系统化、规范化、可管理、将软件开发变成一项工程。 3.为什么需要软件工程？软件开发进度难">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件测试第二章：测试入门">
@@ -20,80 +37,171 @@
   
     <link rel="alternate" href="/atom.xml" title="Hero" type="application/atom+xml">
   
+  <link rel="icon" href="/css/images/favicon.ico">
   
-    <link rel="shortcut icon" href="/favicon.png">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
   
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hero</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Hero" rel="home"> Hero </a>
+            
+          </h1>
+
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
       </div>
-    </div>
   </div>
 </header>
 
-      <div class="outer">
-        <section id="main"><article id="post-软件测试第二章：测试入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-09-02T01:09:30.000Z" itemprop="datePublished">2021-09-02</time>
-</a>
-    
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
   </div>
-  <div class="article-inner">
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-软件测试第二章：测试入门" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
       <header class="article-header">
         
   
-    <h1 class="p-name article-title" itemprop="headline name">
+    <h1 class="thumb" class="article-title" itemprop="name">
       软件测试第二章：测试入门
     </h1>
   
 
       </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/" class="article-date">
+	  <time datetime="2021-09-02T01:09:30.000Z" itemprop="datePublished">September 2, 2021</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
         <h2 id="测试入门"><a href="#测试入门" class="headerlink" title="测试入门"></a>测试入门</h2><h4 id="1-软件产品的特点"><a href="#1-软件产品的特点" class="headerlink" title="1.软件产品的特点"></a>1.软件产品的特点</h4><ol>
 <li><p>是一种逻辑产品，与物质产品有很大的区别。</p>
@@ -186,10 +294,50 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/" data-id="ckt2iweev0001aovbegg907we" data-title="软件测试第二章：测试入门" class="article-share-link">Share</a>
+    <footer class="entry-meta entry-footer">
       
       
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
       
     </footer>
   </div>
@@ -208,93 +356,141 @@
   
 </article>
 
+<!-- Table of Contents -->
 
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">测试入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.软件产品的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%EF%BC%9F"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 什么是软件工程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%EF%BC%9F"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.为什么需要软件工程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.软件的开发模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.0.5.</span> <span class="nav-text">4.软件开发生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.0.6.</span> <span class="nav-text">5.软件测试定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%EF%BC%9F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F"><span class="nav-number">1.0.7.</span> <span class="nav-text">6.什么是软件测试？软件测试是做什么的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%B5%8B%E8%AF%95%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">1.0.8.</span> <span class="nav-text">7.测试的对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="nav-number">1.0.9.</span> <span class="nav-text">8.软件测试的目的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E8%BD%AF%E6%B5%8B%E6%B5%8B%E8%AF%95%E6%89%80%E9%81%B5%E5%BE%AA%E7%9A%84%E5%8E%9F%E5%88%99"><span class="nav-number">1.0.10.</span> <span class="nav-text">9.软测测试所遵循的原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%B4%A8%E9%87%8F%E7%89%B9%E7%82%B9"><span class="nav-number">1.0.11.</span> <span class="nav-text">10.软件的质量特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E9%82%A3%E4%BA%9B%E5%8E%9F%E5%9B%A0%E5%BD%B1%E5%93%8D%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%B4%A8%E9%87%8F"><span class="nav-number">1.0.12.</span> <span class="nav-text">11.那些原因影响软件的质量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.</span> <span class="nav-text">12.软件测试的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E6%B5%8B%E8%AF%95%E9%98%B6%E6%AE%B5%E5%88%86"><span class="nav-number">1.0.13.0.1.</span> <span class="nav-text">按照测试阶段分</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.0.2.</span> <span class="nav-text">按照测试技术分类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.0.3.</span> <span class="nav-text">按照软件质量分类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A8%8B%E5%BA%A6%E6%9D%A5%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.0.4.</span> <span class="nav-text">按照自动化程度来分类:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.0.5.</span> <span class="nav-text">按照测试类型分类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%88%86%E7%B1%BB"><span class="nav-number">1.0.13.0.6.</span> <span class="nav-text">其他分类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">13.软件测试的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#14-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B%EF%BC%9A"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">14.测试用例包括哪些：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-%E7%BC%BA%E9%99%B7%E6%8A%A5%E5%91%8A%EF%BC%9A"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">15.缺陷报告：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">16.测试报告</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
 </section>
         
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/">软件测试第二章：测试入门</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">软件测试第一章：计算机技术基础</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/30/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
       </div>
-      <footer id="footer">
+      <footer id="footer" class="site-footer">
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 hujun<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2021 Hero All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
   </div>
 </footer>
 
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
     </div>
-    <nav id="mobile-nav">
+    <!-- <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
-</nav>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
     
 
+<!-- mathjax config similar to math.stackexchange -->
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
 
 
 
 
 
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-haru"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
 </html>
