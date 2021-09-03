@@ -173,6 +173,198 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-软件测试第三章：软件缺陷"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/03/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/">软件测试第三章：软件缺陷</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/03/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/" class="article-date">
+	  <time datetime="2021-09-03T03:53:45.000Z" itemprop="datePublished">September 3, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、缺陷的基本理论"><a href="#一、缺陷的基本理论" class="headerlink" title="一、缺陷的基本理论"></a>一、缺陷的基本理论</h3><h4 id="1-什么是缺陷"><a href="#1-什么是缺陷" class="headerlink" title="1. 什么是缺陷"></a>1. 什么是缺陷</h4><p>软件存在着不符合质量需求或违背软件用户、客户、企业意愿的问题，这就是软件缺陷</p>
+<h4 id="2-缺陷的判断标准"><a href="#2-缺陷的判断标准" class="headerlink" title="2. 缺陷的判断标准"></a>2. 缺陷的判断标准</h4><p>1.软件未达到产品说明书标明的功能；</p>
+<p>2.软件出现了产品说明书指明不会出现的错误；</p>
+<p>3.软件功能超出产品说明书指明范围；</p>
+<p>4.未达到产品说明书虽未指出但应达到的目标；</p>
+<p>5.软件测试员认为软件难以理解、不易使用、运行速度缓慢，或者最终用户认为不好。</p>
+<h4 id="3-缺陷的表现形式"><a href="#3-缺陷的表现形式" class="headerlink" title="3. 缺陷的表现形式"></a>3. 缺陷的表现形式</h4><p>A. 用户要求的功能、特性没有实现或部分实现。 </p>
+<p>B. 运行出错，包括运行中断、系统崩溃、界面混乱等。 </p>
+<p>C. 数据结果不正确、精度不够、不完整或格式不统一。 </p>
+<p>D. 文字显示内容不正确或拼写错误。 </p>
+<p>E. 系统性能低下、系统资源浪费。</p>
+<h4 id="4-缺陷的注意点"><a href="#4-缺陷的注意点" class="headerlink" title="4. 缺陷的注意点"></a>4. 缺陷的注意点</h4><p>a.无效的缺陷</p>
+<p>b.重复的缺陷</p>
+<p>c.有争议的缺陷</p>
+<p>d.无法再现的缺陷</p>
+<h3 id="二-提交缺陷报告"><a href="#二-提交缺陷报告" class="headerlink" title="二. 提交缺陷报告"></a>二. 提交缺陷报告</h3><h4 id="1-什么是缺陷报告"><a href="#1-什么是缺陷报告" class="headerlink" title="1. 什么是缺陷报告"></a>1. 什么是缺陷报告</h4><p>缺陷报告是对缺陷进行记录、分类和跟踪的文档。</p>
+<h4 id="2-缺陷报告的组成"><a href="#2-缺陷报告的组成" class="headerlink" title="2.缺陷报告的组成"></a>2.缺陷报告的组成</h4><p>缺陷的标题/缺陷摘要/缺陷概述/缺陷基本信息 </p>
+<p>预处理 </p>
+<p>复现步骤 </p>
+<p>期望结果 </p>
+<p>实际结果 </p>
+<p>缺陷的严重程度 </p>
+<p>缺陷的优先级 </p>
+<p>测试的软件和硬件环境 </p>
+<p>测试的软件版本 </p>
+<p>缺陷的类型 </p>
+<h4 id="3-根据缺陷类型分类"><a href="#3-根据缺陷类型分类" class="headerlink" title="3. 根据缺陷类型分类"></a>3. 根据缺陷类型分类</h4><p>功能缺陷 </p>
+<p>界面缺陷 </p>
+<p>文档缺陷 </p>
+<p>代码缺陷 </p>
+<p>算法错误 </p>
+<p>性能缺陷</p>
+<h4 id="4-根据缺陷的等级分类"><a href="#4-根据缺陷的等级分类" class="headerlink" title="4. 根据缺陷的等级分类"></a>4. 根据缺陷的等级分类</h4><p>A类          致命缺陷</p>
+<p>B 类          严重缺陷</p>
+<p>C 类          一般缺陷</p>
+<p>D类           较小缺陷</p>
+<h4 id="5-根据缺陷的优先级分类"><a href="#5-根据缺陷的优先级分类" class="headerlink" title="5.根据缺陷的优先级分类"></a>5.根据缺陷的优先级分类</h4><p>1级：缺陷必须立即解决</p>
+<p>2级：缺陷需要正常正常排队等待修复</p>
+<p>3级：缺陷可以在方便时被纠正</p>
+<p>4级：下一个版本修复</p>
+<p>5级：不修复或者列入发布清单</p>
+<h4 id="6-根据缺陷的状态分类"><a href="#6-根据缺陷的状态分类" class="headerlink" title="6.根据缺陷的状态分类"></a>6.根据缺陷的状态分类</h4><p>submitted/ 已提交:  已提交的缺陷</p>
+<p>open/打开：确认提交的缺陷，等待处理</p>
+<p>rejected/已拒绝：拒绝提交的缺陷，不需要修复或不是缺陷</p>
+<p>resolved/已解决：缺陷被修复</p>
+<p>verified/已验证：确认缺陷确实被修正</p>
+<p>closed/关闭：确认被修复的缺陷，将其关闭</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-9-3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/03/9-3/">9.3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/03/9-3/" class="article-date">
+	  <time datetime="2021-09-03T01:31:57.000Z" itemprop="datePublished">September 3, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.将一个保单记录插入到t_policy_base表中</p>
+<p>insert     into    t_policy_base    values    (001，”张三”，109，”2017-01-01”，”2017-12-31” )</p>
+<p>2.删除车辆中车辆编号为001的数据</p>
+<p>delect   from   t_vehicle   where   vo=001</p>
+<p>3.删除车辆中保单号为001的数据</p>
+<p>delect   from    t_policy_base  where   po=001</p>
+<p>4.将保单号为002的被保险人改为李四</p>
+<p>update  t_policy_base  set   iname=”李四”   where   po=002</p>
+<p>5.查询保单表中起保时间大于2017-05-01的所有数据，按照保单号降序排列</p>
+<p>select  *  from  t_policy_base  order  by  sdate   having   sdate&gt;”2017-05-01”   desc</p>
+<p>6.查询产品类型为109的所有车辆号码，车架号，保单号，被保险人</p>
+<p>select  *  from  t_vehicle  as  t  inner join  t_policy_vehicle  as  p  on   t.vo=p.vo     inner  jion   t_policy_base  as o  on  p.po=o.po</p>
+<p>7.从测试阶段角度来看,测试的正确顺序为(B)</p>
+<p>1)单元测试</p>
+<p>2)集成测试</p>
+<p>3)系统测试</p>
+<p>4)确认测试</p>
+<p>A) 1324B) 1234 C) 1243 D) 1243</p>
+<p>8.输入(A )命令可以查看IP地址</p>
+<p>A) ipconfig   B)ipconnect    C connectip     D)configip</p>
+<p>9.白盒测试是根据(B )设计测试用例，黑 盒是根据(A )设计测试用例</p>
+<p>A)软件规格说明书      B)内 部逻辑       C)内部数据     D)详细设计</p>
+<p>10.测试软件产品说明书属于（B） </p>
+<p>A)   动态白盒测试         B)   动态黑盒测试        (C)   静态白盒测试       D)静态黑色测试</p>
+<p>11..测试覆盖的用途在于: (A)</p>
+<p>A)测试设计    B)测试执行    C)测试度量   D) 确认测试</p>
+<p>12.下列哪些属于自动化测试的好处: (A D   )</p>
+<p>A)测试具有一-致性和可重复性</p>
+<p>B)能发现更多的缺陷</p>
+<p>C)更精确的测试</p>
+<p>D)可以更快地将软件推向市场</p>
+<p>13.以下哪些方法属于黑盒测试方法(B C)</p>
+<p>A)代码走查       B)等价类划分     C)因果图          D)语句覆盖</p>
+<p>14.软件系统测试活动的输出有: ( B C D)</p>
+<p>A)测试计划   B) 测试用例   C) 测试记录    D)测试总结报 告</p>
+<p>9.下列选项中属于操作系统的是:(A B ) </p>
+<p>A) SQL SERVER 2005      B)UNIX        C)Mircosoft Word D)OUTLOOK</p>
+<p>15.下列哪项不属于软件系统测试的生命周期( D)</p>
+<p>A)测试设计    B)测试执行    C)缺陷跟踪    D) 测试评估</p>
+<p>16.测试用例必须包含哪些内容?</p>
+<p>用例编号、用例名称、测试背景、测试数据、操作步骤、预期结果、实际结果、优先级、重要级、编写人、执行人、备注等。</p>
+<p>17.你使用过哪些缺陷管理工具?你们的缺陷严重程度有几种？</p>
+<p>禅道       </p>
+<p>A类          致命缺陷</p>
+<p>B 类          严重缺陷</p>
+<p>C 类          一般缺陷</p>
+<p>D类           较小缺陷</p>
+<p>18.Linux 下查任务状态的命令?</p>
+<p>19.Linux 下查看系统进程中是否有Tomcat服务在运行的命令?</p>
+<p>20.Linux 下，/datal 目录下同时将文件filel和目录dir复制到/data2 目录下的命令?</p>
+<p>21.Linux 下，如何查看动态日志文件中的内容?</p>
+<p>cat  文件</p>
+<p>22.Shell命令，将当前目录下所有后缀为log文件中的日志行数，统计追加到当前目录下的logline. log文件中</p>
+<p>23.http返回值的含义：</p>
+<p>200：表明该请求被成功地完成，所请求的资源发送到客户端。</p>
+<p>404：可连接服务器，但服务器无法取得所请求的网页，请求资源不存在。</p>
+<p>500：服务器错误。</p>
+<p>502，网关错误。</p>
+<p>24.gzip应用在http  header的哪个参数里面？</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-软件测试第二章：测试入门"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -571,6 +763,30 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/03/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/">软件测试第三章：软件缺陷</a></h6>
+              <span>September 3, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2021/09/03/9-3/">9.3</a></h6>
+              <span>September 3, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/">软件测试第二章：测试入门</a></h6>
               <span>September 2, 2021</span>
             </div>
@@ -619,7 +835,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
