@@ -173,6 +173,76 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-sql查询题"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/07/sql%E6%9F%A5%E8%AF%A2%E9%A2%98/">sql查询50道</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/07/sql%E6%9F%A5%E8%AF%A2%E9%A2%98/" class="article-date">
+	  <time datetime="2021-09-07T09:51:47.000Z" itemprop="datePublished">September 7, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#创建库</p>
+<p>CREATE  DATABASE aa;<br>USE aa;</p>
+<h4 id="表1"><a href="#表1" class="headerlink" title="表1"></a>表1</h4><p>CREATE TABLE Student(sid VARCHAR(10),sname VARCHAR(10),sage DATETIME,ssex VARCHAR(10));</p>
+<p>插入数据：<br>INSERT INTO Student VALUES(‘01’ , ‘赵雷’ , ‘1990-01-01’ , ‘男’);<br>INSERT INTO Student VALUES(‘02’ , ‘钱电’ , ‘1990-12-21’ , ‘男’);<br>INSERT INTO Student VALUES(‘03’ , ‘孙风’ , ‘1990-05-20’ , ‘男’);<br>INSERT INTO Student VALUES(‘04’ , ‘李云’ , ‘1990-08-06’ , ‘男’);<br>INSERT INTO Student VALUES(‘05’ , ‘周梅’ , ‘1991-12-01’ , ‘女’);<br>INSERT INTO Student VALUES(‘06’ , ‘吴兰’ , ‘1992-03-01’, ‘女’);<br>INSERT INTO Student VALUES(‘07’ , ‘郑竹’ , ‘1989-07-01’ , ‘女’);<br>INSERT INTO Student VALUES(‘08’ , ‘王菊’ , ‘1990-01-20’ , ‘女’); </p>
+<hr>
+<h4 id="表2"><a href="#表2" class="headerlink" title="表2"></a>表2</h4><p>CREATE TABLE Course(cid VARCHAR(10),cname VARCHAR(10),tid VARCHAR(10)); </p>
+<p>插入数据<br>INSERT INTO Course VALUES(‘01’ , ‘语文’ , ‘02’);<br>INSERT INTO Course VALUES(‘02’ , ‘数学’ , ‘01’); </p>
+<p>INSERT INTO Course VALUES(‘03’ , ‘英语’ ,’03’); </p>
+<h4 id="表3"><a href="#表3" class="headerlink" title="表3"></a>表3</h4><p>CREATE TABLE Teacher(tid VARCHAR(10),tname VARCHAR(10)); </p>
+<p>插入数据<br>INSERT INTO Teacher VALUES(‘01’ , ‘张三’);<br>INSERT INTO Teacher VALUES(‘02’ , ‘李四’); </p>
+<p>INSERT INTO Teacher VALUES(‘03’ , ‘王五’);</p>
+<h4 id="表4"><a href="#表4" class="headerlink" title="表4"></a>表4</h4><p> CREATE TABLE SC(sid VARCHAR(10),cid<br>              VARCHAR(10),score DECIMAL(18,1));</p>
+<p>插入数据<br>INSERT INTO SC VALUES(‘01’ , ‘01’ , 80);<br>INSERT INTO SC VALUES(‘01’ , ‘02’ , 90);<br>INSERT INTO SC VALUES(‘01’ , ‘03’ , 99);<br>INSERT INTO SC VALUES(‘02’ , ‘01’ , 70);<br>INSERT INTO SC VALUES(‘02’ , ‘02’ , 60);<br>INSERT INTO SC VALUES(‘02’ , ‘03’ , 80);<br>INSERT INTO SC VALUES(‘03’ , ‘01’ , 80);<br>INSERT INTO SC VALUES(‘03’ , ‘02’ , 80);<br>INSERT INTO SC VALUES(‘03’ , ‘03’ , 80);<br>INSERT INTO SC VALUES(‘04’ , ‘01’ , 50);<br>INSERT INTO SC VALUES(‘04’ , ‘02’ , 30);<br>INSERT INTO SC VALUES(‘04’ , ‘03’ , 20);<br>INSERT INTO SC VALUES(‘05’ , ‘01’ , 76);<br>INSERT INTO SC VALUES(‘05’ , ‘02’ , 87);<br>INSERT INTO SC VALUES(‘06’ , ‘01’ , 31);<br>INSERT INTO SC VALUES(‘06’ , ‘03’ , 34);<br>INSERT INTO SC VALUES(‘07’ , ‘02’ , 89);<br>INSERT INTO SC VALUES(‘07’ , ‘03’ , 98);</p>
+<h4 id="接下来是题目："><a href="#接下来是题目：" class="headerlink" title="接下来是题目："></a>接下来是题目：</h4><h5 id="1-查询“某1”课程比“某2”课程成绩高的所有学生的学号；"><a href="#1-查询“某1”课程比“某2”课程成绩高的所有学生的学号；" class="headerlink" title="#1.查询“某1”课程比“某2”课程成绩高的所有学生的学号；"></a>#1.查询“某1”课程比“某2”课程成绩高的所有学生的学号；</h5><p>SELECT *<br>FROM (SELECT *FROM sc WHERE sc.CId=01) AS ch<br>INNER JOIN(SELECT * FROM sc WHERE sc.CId=02)AS mh<br>ON ch.SId=mh.SId WHERE ch.Score&gt;mh.Score</p>
+<h5 id="2-查询平均成绩大于60分的同学的学号和平均成绩；"><a href="#2-查询平均成绩大于60分的同学的学号和平均成绩；" class="headerlink" title="#2.查询平均成绩大于60分的同学的学号和平均成绩；"></a>#2.查询平均成绩大于60分的同学的学号和平均成绩；</h5><p>SELECT sid,AVG(score) FROM sc GROUP BY sid<br>HAVING AVG(score)&gt;60;</p>
+<h5 id="3-查询所有同学的学号、姓名、选课数、总成绩"><a href="#3-查询所有同学的学号、姓名、选课数、总成绩" class="headerlink" title="#3.查询所有同学的学号、姓名、选课数、总成绩"></a>#3.查询所有同学的学号、姓名、选课数、总成绩</h5><p>SELECT Student.sid,Student.Sname,COUNT(SC.cid),SUM(score)<br>FROM Student LEFT OUTER JOIN SC ON Student.sid=SC.cid<br>GROUP BY Student.sid,Sname</p>
+<h5 id="4-查询姓“李”的老师的个数；"><a href="#4-查询姓“李”的老师的个数；" class="headerlink" title="#4.查询姓“李”的老师的个数；"></a>#4.查询姓“李”的老师的个数；</h5><p>SELECT COUNT(teacher.tid)FROM teacher<br>WHERE teacher.tname LIKE’李%’</p>
+<h5 id="5-查询没学过“张三”老师课的同学的学号、姓名；"><a href="#5-查询没学过“张三”老师课的同学的学号、姓名；" class="headerlink" title="#5.查询没学过“张三”老师课的同学的学号、姓名；"></a>#5.查询没学过“张三”老师课的同学的学号、姓名；</h5><p>SELECT Student.sid,Student.Sname FROM Student WHERE sid<br>NOT IN (SELECT DISTINCT( SC.sid) FROM SC,Course,Teacher<br>WHERE  SC.cid=Course.cid AND Teacher.tid=Course.tid AND<br>Teacher.Tname=”张三”);</p>
+<h5 id="6-查询学过“-”并且也学过编号“-”课程的同学的学号、姓名；"><a href="#6-查询学过“-”并且也学过编号“-”课程的同学的学号、姓名；" class="headerlink" title="#6.查询学过“ ”并且也学过编号“ ”课程的同学的学号、姓名；"></a>#6.查询学过“ ”并且也学过编号“ ”课程的同学的学号、姓名；</h5><p>SELECT a.SID,a.SNAME FROM (SELECT student.SNAME,student.SID<br>FROM student,course,sc WHERE cname=”语文”<br>AND sc.sid=student.sid AND sc.cid=course.cid)AS a,<br>(SELECT student.SNAME,student.SID FROM student,course,<br>sc WHERE cname=’数学’AND sc.sid=student.sid AND<br>sc.cid=course.cid)AS b WHERE a.sid=b.sid;</p>
+<h5 id="7-查询学过“张三”老师所教的所有课的同学的学号、姓名；"><a href="#7-查询学过“张三”老师所教的所有课的同学的学号、姓名；" class="headerlink" title="#7.查询学过“张三”老师所教的所有课的同学的学号、姓名；"></a>#7.查询学过“张三”老师所教的所有课的同学的学号、姓名；</h5><p>SELECT sid,Sname FROM Student WHERE sid IN (SELECT sid FROM<br>SC ,Course ,Teacher WHERE SC.cid=Course.cid AND<br>Teacher.tid=Course.tid AND Teacher.Tname=’张三’<br>GROUP BY sid HAVING COUNT(SC.cid)=(SELECT COUNT(cid) FROM<br>Course,Teacher<br>WHERE Teacher.tid=Course.tid AND Tname=’张三’))</p>
+<h5 id="8-查询课程编号“01”的成绩比课程编号“02”"><a href="#8-查询课程编号“01”的成绩比课程编号“02”" class="headerlink" title="#8.*****查询课程编号“01”的成绩比课程编号“02”"></a>#8.*****查询课程编号“01”的成绩比课程编号“02”</h5><p>#课程低的所有同学的学号、姓名；</p>
+<p>SELECT a.sid,a.sname FROM(SELECT student.SID,student.sname,<br>sc.SCORE  FROM student,sc WHERE student.sid=sc.sid AND<br>sc.cid=1)AS a,(SELECT student.SID,student.sname,sc.score FROM<br>student,sc WHERE student.sid=sc.sid AND sc.cid=2)AS b<br>WHERE a.score&lt;b.score AND a.sid=b.sid</p>
+<h5 id="9-查询所有课程成绩小于60分的同学的学号、姓名；"><a href="#9-查询所有课程成绩小于60分的同学的学号、姓名；" class="headerlink" title="#9.查询所有课程成绩小于60分的同学的学号、姓名；"></a>#9.查询所有课程成绩小于60分的同学的学号、姓名；</h5><p>SELECT sid,Sname FROM Student WHERE sid<br>NOT IN (SELECT Student.sid FROM Student,SC WHERE<br>Student.sid=SC.sid AND score&gt;60); </p>
+<h5 id="10-查询没有学全所有课的同学的学号、姓名；"><a href="#10-查询没有学全所有课的同学的学号、姓名；" class="headerlink" title="#10.*****查询没有学全所有课的同学的学号、姓名；"></a>#10.*****查询没有学全所有课的同学的学号、姓名；</h5><p>SELECT Student.sid,Student.Sname  FROM Student,SC<br>WHERE Student.sid=SC.sid GROUP BY<br>Student.sid,Student.Sname<br>HAVING COUNT(cid) &lt;(SELECT COUNT(cid) FROM Course); </p>
+<h5 id="11-查询至少有一门课与学号为“01”的同学所学相同的同学的学号和姓名；"><a href="#11-查询至少有一门课与学号为“01”的同学所学相同的同学的学号和姓名；" class="headerlink" title="#11.查询至少有一门课与学号为“01”的同学所学相同的同学的学号和姓名；"></a>#11.查询至少有一门课与学号为“01”的同学所学相同的同学的学号和姓名；</h5><p>SELECT DISTINCT(student.sid),student.sname FROM<br>student,sc WHERE student.sid=sc.sid AND<br>student.sid IN(<br>SELECT cid FROM sc WHERE sid=01)</p>
+<h5 id="12-查询和”01”号的同学学习的课程完全相同的其他同学的学号和姓名"><a href="#12-查询和”01”号的同学学习的课程完全相同的其他同学的学号和姓名" class="headerlink" title="#12.查询和”01”号的同学学习的课程完全相同的其他同学的学号和姓名"></a>#12.查询和”01”号的同学学习的课程完全相同的其他同学的学号和姓名</h5><p>SELECT DISTINCT(student.sid),student.Sname FROM<br>Student,SC WHERE Student.sid=SC.sid AND<br>cid IN (SELECT cid FROM SC WHERE sid=1)</p>
+<h5 id="13-把“SC”表中“张三”老师教的课的成绩都更改为此课程的平均成绩；"><a href="#13-把“SC”表中“张三”老师教的课的成绩都更改为此课程的平均成绩；" class="headerlink" title="#13.*****把“SC”表中“张三”老师教的课的成绩都更改为此课程的平均成绩；"></a>#13.*****把“SC”表中“张三”老师教的课的成绩都更改为此课程的平均成绩；</h5><p>#这里求出张三老师的平均分值即可！！！<br>UPDATE sc SET score =(SELECT AVG(score) FROM<br>sc,course,teacher WHERE course.cid=sc.cid<br>AND course.tid=teacher.tid AND teacher.tname=”张三”)</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-mysql第三章"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -931,6 +1001,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/07/sql%E6%9F%A5%E8%AF%A2%E9%A2%98/">sql查询50道</a></h6>
+              <span>September 7, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%89%E7%AB%A0/">mysql第三章</a></h6>
               <span>September 7, 2021</span>
             </div>
@@ -985,18 +1067,6 @@ var themeMenus = {};
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2021/09/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">软件测试第一章：计算机技术基础</a></h6>
-              <span>September 1, 2021</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1015,7 +1085,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
