@@ -31,7 +31,7 @@
 <meta property="og:description" content="子查询​    子查询：把A的查询结果给B做参考（A子 B 父）​    多级子查询 select * from   orderdetail   where  Ordernum  in （select  Ordernum   from  orders  where   CusID  &#x3D; (select  CusID  from  customers  order  by   Cuspoint  d">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-07T09:05:43.000Z">
-<meta property="article:modified_time" content="2021-09-07T09:30:38.877Z">
+<meta property="article:modified_time" content="2021-09-07T09:39:39.847Z">
 <meta property="article:author" content="hujun">
 <meta name="twitter:card" content="summary">
   
@@ -215,125 +215,34 @@ var themeMenus = {};
 <p>(select  distinct  cusid  from  orders)</p>
 <p>语句解释<br>    – 1.查询所有下过单的客户id<br>    – 2.通过这个子查询得到客户id号作为条件 ，来筛选出未下过单的客户</p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="系统函数"><a href="#系统函数" class="headerlink" title="系统函数"></a>系统函数</h4><h5 id="聚合函数："><a href="#聚合函数：" class="headerlink" title="聚合函数："></a>聚合函数：</h5><p>​            max()<br>​            min()<br>​            count()<br>​            sum()<br>​            avg()</p>
-<h5 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h5><p>​            1.SELECT  NOW()  ：获取当前的系统时间</p>
-<p>​            2.SELECT CURDATE()  ：获取当前日期</p>
-<p>​            3.SELECT CURTIME()  ：获取当前的时分秒</p>
-<p>​        获取日期或时间中某个单位的整数： </p>
-<p>​            1.SELECT YEAR( d )  ：获取指定时间的年<br>​            2.month(d):月份<br>​            3. dayofmonth(d):日<br>​            4.hour(d):小时<br>​            5.minute(d):分钟<br>​            6.second(d):秒<br>​            7.weekday(d)  获取这是一周的第几天<br>​                周一为0<br>​            8.week(d):  一年中的第几周<br>​            9.SELECT DAYOFYEAR(NOW())  :获取一年当中的第第多少天</p>
-<h5 id="日期运算："><a href="#日期运算：" class="headerlink" title="日期运算："></a><strong>日期运算</strong>：</h5><pre><code>        1. datediff(d1,d2):计算d1-d2相差的天数
-            SELECT DATEDIFF(NOW(),&#39;2001-2-6 08:59:33&#39;);
-            单位：天
-        2.adddate(d,n):在d日期的基础上增加n天
-            SELECT  ADDDATE(NOW(),5)
-        3.SUBdate(d,n):在d日期的基础上减少n天
-            SELECT SUBDATE(NOW(),50)
-
-​        4.SELECT DATE_ADD(d,INTERVAL n type)
-
-​                d:表示一个日期
-​                INTERVAL：固定的关键字
-​                n:数值
-​                    为正数：增加
-​                    为负数：减少
-​                type：表示时间单位
-​                    year
-​                    month
-​                    day
-​                    week
-
-#####         日期格式的转换：
-
-​            用的函数：
-​                date_format（时间，格式字符）
-​            案例
-​                SELECT DATE_FORMAT(NOW(), &#39;%Y年%m月%d日&#39;);
-​                获取当前时间的年月日进行组合
-​            格式字符参考
-​                %Y:表示四月年份
-​                %m表示两位的月份
-​                %d：表示两位日数
-​                ...可以参考课后资料表
-
-#####         数字函数：
-
-​            SELECT ROUND(&#39;3.1465926&#39;,2);
-​                四舍五入保留2位小数
-​            SELECT ROUND(3.54)
-​                四舍五入保留整数
-​            truncate(x,y):保留y位小数的值，只舍不入
-​            ceil(x)：返回大于等于x的最小整数(向上取整)
-​            floor(x)：与ceil相反，返回小于等于x的最大整数（向下取整)
-​            rand()：产生一个0~1的小数
-
-#####         字符串函数：
-
-​            1.concat(s1,s2,…):将多个字符串拼接
-​                SELECT CONCAT(CusLogin,CusNick) FROM customers
-
-​            2.concat_ws(s,s1,s2,….):将多个字符串使用s进行拼接
-​                SELECT CONCAT_WS(&#39;-&#39;,CusLogin,CusNick) FROM customers
-​            注意：在MySQL中不能使用+号来实现字符串拼接
-
-​            3.char_length(s)：获取字符串字符长度
-​                SELECT CHAR_LENGTH(&#39;A112班&#39;)
-
-​            4.length(s):获取字符串字节长度
-
-​            5.right(x,n):截取x字符串的后面n个字符
-
-​            6.left(x,n):截取x字符串的前面n个字符
-
-​            7.substring(x,start,length)：对x字符串进行截取，从start位置开始截取length个
-
-​                SELECT SUBSTRING(&#39;这是一段字符串&#39;,1,4);
-​            8.Upper(s):转化为大写
-
-​            9.Lower(s):转化为小写
-
-​            10.replace(s1,s2,s3):在s1的字符串中查找s2字符串并替换成s3字符串
-
-​            locate(substr,str) 查找substr在str中第一次出现的位置
-​            locate(substr,str,pos) 查找substr在str中pos后第一次出现的位置
-​            注意：mysql的索引从1开始
-​            md5转换
-​                目的
-​                    将字符串s转化为md5编码
-
-#####         字符串转换
-
-​            格式：
-​                convert(x,type): 将x转换为type类型并返回
-​            type的取值：
-​                字符类型：char(length)
-​                日期类型：date、time，datetime
-​                浮点型：decimal
-​                整数：signed
-​            案例：
-​                SELECT CONVERT(&#39;123a&#39;,SIGNED)+45;
-
-####     二、自定义函数
-
-#####         语法格式
-
-​            创建
-​                DROP FUNCTION IF EXISTS fn_test;  
-​                CREATE FUNCTION  函数名(参数 数据类型) returns  返回值类型
-​                    没得花括号
-​                return   返回值；
-​            调用
-​                SELECT 函数名(传参)
-
-#####         注意事项
-
-​            必须有返回类型
-​            函数名使用fn_开头命名
-​            函数中不能产生查询结果集
-
-#####         删除函数
-
-​            drop function 函数名
+<h5 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h5><p>​    1.SELECT  NOW()<br>​        获取当前的系统时间<br>​    2.SELECT CURDATE()<br>​        获取当前日期<br>​    3.SELECT CURTIME()<br>​        获取当前的时分秒</p>
+<h5 id="获取日期或时间中某个单位的整数："><a href="#获取日期或时间中某个单位的整数：" class="headerlink" title="获取日期或时间中某个单位的整数："></a>获取日期或时间中某个单位的整数：</h5><p>​    1.SELECT YEAR( d )<br>​        获取指定时间的年<br>​    2.month(d):月份<br>​    3. dayofmonth(d):日<br>​    4.hour(d):小时<br>​    5.minute(d):分钟<br>​    6.second(d):秒<br>​    7.weekday(d)  获取这是一周的第几天<br>​        周一为0<br>​    8.week(d):一年中的第几周<br>​    9.SELECT DAYOFYEAR(NOW())  :获取一年当中的第第多少天</p>
+<h5 id="日期运算："><a href="#日期运算：" class="headerlink" title="日期运算："></a>日期运算：</h5><pre><code>1. datediff(d1,d2):计算d1-d2相差的天数
+    SELECT DATEDIFF(NOW(),&#39;2001-2-6 08:59:33&#39;);
+    单位：天
+2.adddate(d,n):在d日期的基础上增加n天
+    SELECT  ADDDATE(NOW(),5)
+3.SUBdate(d,n):在d日期的基础上减少n天
+    SELECT SUBDATE(NOW(),50)
+4.SELECT DATE_ADD(d,INTERVAL n type)
+    d:表示一个日期
+    INTERVAL：固定的关键字
+    n:数值
+        为正数：增加
+        为负数：减少
+    type：表示时间单位
+        year
+        month
+        day
+        week
 </code></pre>
-
+<h5 id="日期格式的转换："><a href="#日期格式的转换：" class="headerlink" title="日期格式的转换："></a>日期格式的转换：</h5><p>​    用的函数：<br>​        date_format（时间，格式字符）<br>​    案例<br>​        SELECT DATE_FORMAT(NOW(), ‘%Y年%m月%d日’);<br>​        获取当前时间的年月日进行组合<br>​    格式字符参考<br>​        %Y:表示四月年份<br>​        %m表示两位的月份<br>​        %d：表示两位日数<br>​        …可以参考课后资料表</p>
+<h5 id="数字函数："><a href="#数字函数：" class="headerlink" title="数字函数："></a>数字函数：</h5><p>​    SELECT ROUND(‘3.1465926’,2);<br>​        四舍五入保留2位小数<br>​    SELECT ROUND(3.54)<br>​        四舍五入保留整数<br>​    truncate(x,y):保留y位小数的值，只舍不入<br>​    ceil(x)：返回大于等于x的最小整数(向上取整)<br>​    floor(x)：与ceil相反，返回小于等于x的最大整数（向下取整)<br>​    rand()：产生一个0~1的小数</p>
+<h5 id="字符串函数："><a href="#字符串函数：" class="headerlink" title="字符串函数："></a>字符串函数：</h5><p>​    1.concat(s1,s2,…):将多个字符串拼接<br>​        SELECT CONCAT(CusLogin,CusNick) FROM customers<br>​    2.concat_ws(s,s1,s2,….):将多个字符串使用s进行拼接<br>​        SELECT CONCAT_WS(‘-‘,CusLogin,CusNick) FROM customers<br>​    注意：在MySQL中不能使用+号来实现字符串拼接<br>​    3.char_length(s)：获取字符串字符长度<br>​        SELECT CHAR_LENGTH(‘A112班’)<br>​    4.length(s):获取字符串字节长度<br>​    5.right(x,n):截取x字符串的后面n个字符<br>​    6.left(x,n):截取x字符串的前面n个字符<br>​    7.substring(x,start,length)：对x字符串进行截取，从start位置开始截取length个<br>​        SELECT SUBSTRING(‘这是一段字符串’,1,4);<br>​    8.Upper(s):转化为大写<br>​    9.Lower(s):转化为小写<br>​    10.replace(s1,s2,s3):在s1的字符串中查找s2字符串并替换成s3字符串<br>​    locate(substr,str) 查找substr在str中第一次出现的位置<br>​    locate(substr,str,pos) 查找substr在str中pos后第一次出现的位置<br>​    注意：mysql的索引从1开始<br>​    md5转换<br>​        目的<br>​            将字符串s转化为md5编码</p>
+<h5 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h5><p>​    格式：<br>​        convert(x,type): 将x转换为type类型并返回<br>​    type的取值：<br>​        字符类型：char(length)<br>​        日期类型：date、time，datetime<br>​        浮点型：decimal<br>​        整数：signed<br>​    案例：<br>​        SELECT CONVERT(‘123a’,SIGNED)+45;</p>
+<h4 id="二、自定义函数"><a href="#二、自定义函数" class="headerlink" title="二、自定义函数"></a>二、自定义函数</h4><h5 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h5><p>创建<br>    DROP FUNCTION IF EXISTS fn_test;<br>    CREATE FUNCTION  函数名(参数 数据类型) returns  返回值类型<br>                没得花括号<br>            return   返回值；<br>        调用<br>            SELECT 函数名(传参)</p>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p>​        必须有返回类型<br>​        函数名使用fn_开头命名<br>​        函数中不能产生查询结果集</p>
+<h5 id="删除函数-：drop-function-函数名"><a href="#删除函数-：drop-function-函数名" class="headerlink" title="删除函数  ：drop function 函数名"></a>删除函数  ：drop function 函数名</h5>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -404,7 +313,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">系统函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">聚合函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">日期函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">日期运算：</span></a></li></ol></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">系统函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">聚合函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">日期函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E6%88%96%E6%97%B6%E9%97%B4%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%8D%95%E4%BD%8D%E7%9A%84%E6%95%B4%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.3.</span> <span class="nav-text">获取日期或时间中某个单位的整数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="nav-number">2.1.4.</span> <span class="nav-text">日期运算：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2%EF%BC%9A"><span class="nav-number">2.1.5.</span> <span class="nav-text">日期格式的转换：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.6.</span> <span class="nav-text">数字函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.1.7.</span> <span class="nav-text">字符串函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.1.8.</span> <span class="nav-text">字符串转换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">二、自定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">语法格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%87%BD%E6%95%B0-%EF%BC%9Adrop-function-%E5%87%BD%E6%95%B0%E5%90%8D"><span class="nav-number">2.2.3.</span> <span class="nav-text">删除函数  ：drop function 函数名</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>
