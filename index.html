@@ -173,6 +173,139 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-mysql第一章"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/">mysql第一章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="article-date">
+	  <time datetime="2021-09-07T07:58:02.000Z" itemprop="datePublished">September 7, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql数据库"><a href="#mysql数据库" class="headerlink" title="mysql数据库"></a>mysql数据库</h2><h3 id="一-什么是数据库？"><a href="#一-什么是数据库？" class="headerlink" title="一.什么是数据库？"></a>一.什么是数据库？</h3><p>存储文件,相当于数据的仓库</p>
+<p>可以在数据库中对文件进行增删改查</p>
+<h4 id="1-常见的数据库有哪些？"><a href="#1-常见的数据库有哪些？" class="headerlink" title="1.常见的数据库有哪些？"></a>1.常见的数据库有哪些？</h4><p>关系型数据库</p>
+<p>SQL server   、Oracle   、mysql    、DB2</p>
+<p>非关系型数据库</p>
+<p>resdis</p>
+<h4 id="2-如何在电脑上搭建一个MySQL环境，并安装一个MySQL的服务器"><a href="#2-如何在电脑上搭建一个MySQL环境，并安装一个MySQL的服务器" class="headerlink" title="2.如何在电脑上搭建一个MySQL环境，并安装一个MySQL的服务器"></a>2.如何在电脑上搭建一个MySQL环境，并安装一个MySQL的服务器</h4><p>安装包有两个</p>
+<p>安装前注意：安装失败了，一定要把文件中两个安装包卸载干净，再来重装，否则装不上去</p>
+<p>默认用户名[超级管理员]：root</p>
+<p>安装一个mysql可视化工具：</p>
+<p>sql   yog</p>
+<p>navicat</p>
+<h3 id="二-mysql基本指令"><a href="#二-mysql基本指令" class="headerlink" title="二.mysql基本指令"></a>二.mysql基本指令</h3><p>show   databases：显示当前mysql上的所有数据库</p>
+<p>show   tables：查询当前库下面的所有的表</p>
+<p>drop    database    库名：删除一个库</p>
+<p>drop   database   if   exists  库名 ：先判断这个库存不存在，存在就删除</p>
+<p>设置数据库的字符编码：</p>
+<p>create   database   库名   default   character   set =’utf8’</p>
+<h3 id="三-mysql常见的几种数据类型："><a href="#三-mysql常见的几种数据类型：" class="headerlink" title="三.mysql常见的几种数据类型："></a>三.mysql常见的几种数据类型：</h3><p><strong>int</strong>：整数（范围在-2147483648<del>21474483647）/无符号范围（0</del>4294967295）</p>
+<p><strong>decimal</strong>：小数（decimal（5，2）则表示范围在：-999.99~999.99）</p>
+<p>foalt（4字节）：小数（单精度浮点，精准6个数字）</p>
+<p>double（8字节）：小数（双精度浮点，精准17个数字）</p>
+<p><strong>varchar</strong>：字符串（可变长度字符串,一个汉字两个汉字）</p>
+<p>char:字符串（固定长度字符串，一个字节两个汉字）</p>
+<p><strong>datatime</strong>：日期类型（YYYY-MM-DD HH:ii:ss ）</p>
+<p>bit:布尔类型：只能保存0|1，用来表示真和假</p>
+<h3 id="四-mysql建表："><a href="#四-mysql建表：" class="headerlink" title="四.mysql建表："></a>四.mysql建表：</h3><p>use   库名  #先切换到具体的数据库</p>
+<p>drop  table  if   exists   库名     #判断存在则删除</p>
+<p>create  table  表名         #创建表</p>
+<p>(</p>
+<p>列名   int   not   null，</p>
+<p>列名   varchar(10)   null</p>
+<p>)；</p>
+<p>注：</p>
+<p>1.每条语句后面使用分号结束</p>
+<p>2.列和列之间使用逗号隔开，最后一列无需逗号</p>
+<p>3.默认有符号（zerofill），无符号（unsigned）</p>
+<h3 id="五-mysql约束"><a href="#五-mysql约束" class="headerlink" title="五.mysql约束"></a>五.mysql约束</h3><p> 数据类型：省</p>
+<p> 非空约束：not null</p>
+<p> 默认值约束：default</p>
+<p> 检查约束：没有</p>
+<p> 唯一约束：unique</p>
+<p> 标识列（自动增长）：auto_increment</p>
+<p> 主键约束：primary key</p>
+<p> 外键约束：foreign key</p>
+<h4 id="1-如何添加约束：建表时数据类型后面直接加约束"><a href="#1-如何添加约束：建表时数据类型后面直接加约束" class="headerlink" title="1.如何添加约束：建表时数据类型后面直接加约束"></a>1.如何添加约束：建表时数据类型后面直接加约束</h4><p>Drop table if exists students;       –判断存在则删除</p>
+<p>create table students</p>
+<p>(</p>
+<p>  SID int not null primary key auto_increment,   – 非空 主键 自动增长      </p>
+<p>  Sname varchar(20) null,                             – 允许空</p>
+<p>  Ssex varchar(2) not null default ’男’,     – 默认’男’</p>
+<p>  SCard varchar(18) not null unique,         – 唯一</p>
+<p>  SCID int,</p>
+<p> foreign key(SCID) references classes(CID)    – 单独加外键</p>
+<p>);</p>
+<h4 id="2-表结构的其他操作"><a href="#2-表结构的其他操作" class="headerlink" title="2.表结构的其他操作"></a>2.表结构的其他操作</h4><p>（1）修改表名：</p>
+<p>alter  table  旧表名  rename  新表名;</p>
+<p><strong>表结构操作</strong>：</p>
+<p>（2）增加一列：</p>
+<p>  alter table 表名 add 字段名 数据类型 [约束];</p>
+<p>（3）删除一列：</p>
+<p> alter table 表名 drop 字段名;</p>
+<p>（4）修改字段名和数据类型：</p>
+<p>  alter table 表名 change 旧字段名 新字段名 新数据类型;</p>
+<p>（5）只修改字段数据类型</p>
+<p> alter table 表名 modify 字段名 新数据类型; </p>
+<p><strong>复制表</strong></p>
+<p>（6）  仅复制结构：</p>
+<p>create table 新表名 like 源表;</p>
+<p>（7）复制结构和数据：</p>
+<p>create table 新表名 select * from 源表;</p>
+<h4 id="3-课后拓展：创建表之后，能否再添加或删除约束？"><a href="#3-课后拓展：创建表之后，能否再添加或删除约束？" class="headerlink" title="3.课后拓展：创建表之后，能否再添加或删除约束？"></a>3.课后拓展：创建表之后，能否再添加或删除约束？</h4><p>1.非空约束</p>
+<p>添加:alter table 表名 modify 列名 数据类型 not null </p>
+<p>删除:alter table 表名 modify 列名 数据类型 null</p>
+<p>2.主键约束</p>
+<p>添加:alter table 表名 add primary key (字段)</p>
+<p>删除:alter table 表名 drop primary key</p>
+<p>3.唯一约束</p>
+<p>添加:alter table 表名 add unique 约束名（字段）</p>
+<p>删除:alter table 表名 drop key 约束名</p>
+<p>4.自动增长（需要是主键，才能自动增长）</p>
+<p>添加:alter table 表名 modify 列名 int primary key auto_increment</p>
+<p>删除:alter table 表名 modify 列名 int  </p>
+<p>5.外键约束</p>
+<p>添加:alter table 表名 add constraint 约束名 foreign key(外键列) </p>
+<p>references 主键表（主键列）</p>
+<p>删除:alter table 表名 drop foreign key 约束名</p>
+<p>6.默认值</p>
+<p>添加:alter table 表名 alter 列名 set default ‘值’</p>
+<p>删除:alter table 表名 alter 列名 drop default</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-软件测试第三章：软件缺陷"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -763,6 +896,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/">mysql第一章</a></h6>
+              <span>September 7, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/03/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/">软件测试第三章：软件缺陷</a></h6>
               <span>September 3, 2021</span>
             </div>
@@ -835,7 +980,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
