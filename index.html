@@ -173,6 +173,64 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-mysql第二章"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/">mysql第二章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="article-date">
+	  <time datetime="2021-09-07T08:01:48.000Z" itemprop="datePublished">September 7, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql增删改查操作"><a href="#mysql增删改查操作" class="headerlink" title="mysql增删改查操作"></a>mysql增删改查操作</h2><h4 id="一-增：insert"><a href="#一-增：insert" class="headerlink" title="一.增：insert"></a>一.增：insert</h4><p>1.一次插入一条数据：insert  into 表名  values （值1,值2…）</p>
+<p>2.一次插入多条：insert  into 表名  values （值1,值2…），（值1,值2…）</p>
+<p>3.通过查询来插入数据：insert  into 表1  select  * from 表2 where 条件（把表2的符合条件的数据 插入到表1中）</p>
+<p>例：INSERT INTO stuinfo2   SELECT * FROM stuinfo WHERE stusex=’男</p>
+<h4 id="二-删（删除有三种方法可以删除"><a href="#二-删（删除有三种方法可以删除" class="headerlink" title="二.删（删除有三种方法可以删除)"></a>二.删（删除有三种方法可以删除)</h4><h5 id="delete："><a href="#delete：" class="headerlink" title="delete："></a>delete：</h5><p>只删除数据，但是没有删除表结构，标识列不会清零</p>
+<p>语法：delete   from   表名</p>
+<h5 id="只删除一条数据："><a href="#只删除一条数据：" class="headerlink" title="只删除一条数据："></a>只删除一条数据：</h5><p>delete   from   表名   where  条件</p>
+<h5 id="truncate："><a href="#truncate：" class="headerlink" title="truncate："></a>truncate：</h5><p>只删除数据，但是没有删除表结构，标识列会清零</p>
+<p>语法：truncate   表名</p>
+<h5 id="drop："><a href="#drop：" class="headerlink" title="drop："></a>drop：</h5><p>直接删除表结构</p>
+<p>语法：drop  table  表名</p>
+<h5 id="只删除一条数据：-1"><a href="#只删除一条数据：-1" class="headerlink" title="只删除一条数据："></a>只删除一条数据：</h5><p>delete   from   表名   where  条件</p>
+<h4 id="三-改：update"><a href="#三-改：update" class="headerlink" title="三.改：update"></a>三.改：update</h4><p>语法：update  表名  set  要修改的列=修改的值   where   条件</p>
+<h4 id="四-查（重点）"><a href="#四-查（重点）" class="headerlink" title="四. 查（重点）"></a>四. 查（重点）</h4><h5 id="一切的根源："><a href="#一切的根源：" class="headerlink" title="一切的根源："></a>一切的根源：</h5><p>​    select   * from 表名                                    查询整表<br>​    select  列名 from  表名                               查询部分</p>
+<h5 id="关键字-：where-条件"><a href="#关键字-：where-条件" class="headerlink" title="关键字  ：where + 条件"></a>关键字  ：where + 条件</h5><h5 id="逻辑词的使用：and-or-not"><a href="#逻辑词的使用：and-or-not" class="headerlink" title="逻辑词的使用：and    or   not"></a>逻辑词的使用：and    or   not</h5><p>​        and ：并且<br>​        or:  或者<br>​        not:  非<br>​    案例：查询年龄在18-22之间的学生<br>​    in</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-mysql第一章"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -896,6 +954,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/">mysql第二章</a></h6>
+              <span>September 7, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/">mysql第一章</a></h6>
               <span>September 7, 2021</span>
             </div>
@@ -950,18 +1020,6 @@ var themeMenus = {};
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2021/08/30/hello-world/">Hello World</a></h6>
-              <span>August 30, 2021</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -980,7 +1038,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

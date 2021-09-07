@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mysql第二章 | Hero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="mysql增删改查操作一.增：insert1.一次插入一条数据：insert  into 表名  values （值1,值2…） 2.一次插入多条：insert  into 表名  values （值1,值2…），（值1,值2…） 3.通过查询来插入数据：insert  into 表1  select  * from 表2 where 条件（把表2的符合条件的数据 插入到表1中） 例：INSERT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql第二章">
+<meta property="og:url" content="http://example.com/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Hero">
+<meta property="og:description" content="mysql增删改查操作一.增：insert1.一次插入一条数据：insert  into 表名  values （值1,值2…） 2.一次插入多条：insert  into 表名  values （值1,值2…），（值1,值2…） 3.通过查询来插入数据：insert  into 表1  select  * from 表2 where 条件（把表2的符合条件的数据 插入到表1中） 例：INSERT">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-07T08:01:48.000Z">
+<meta property="article:modified_time" content="2021-09-07T08:02:26.643Z">
+<meta property="article:author" content="hujun">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hero" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Hero" rel="home"> Hero </a>
+            
+          </h1>
+
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-mysql第二章" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      mysql第二章
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="article-date">
+	  <time datetime="2021-09-07T08:01:48.000Z" itemprop="datePublished">September 7, 2021</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql增删改查操作"><a href="#mysql增删改查操作" class="headerlink" title="mysql增删改查操作"></a>mysql增删改查操作</h2><h4 id="一-增：insert"><a href="#一-增：insert" class="headerlink" title="一.增：insert"></a>一.增：insert</h4><p>1.一次插入一条数据：insert  into 表名  values （值1,值2…）</p>
+<p>2.一次插入多条：insert  into 表名  values （值1,值2…），（值1,值2…）</p>
+<p>3.通过查询来插入数据：insert  into 表1  select  * from 表2 where 条件（把表2的符合条件的数据 插入到表1中）</p>
+<p>例：INSERT INTO stuinfo2   SELECT * FROM stuinfo WHERE stusex=’男</p>
+<h4 id="二-删（删除有三种方法可以删除"><a href="#二-删（删除有三种方法可以删除" class="headerlink" title="二.删（删除有三种方法可以删除)"></a>二.删（删除有三种方法可以删除)</h4><h5 id="delete："><a href="#delete：" class="headerlink" title="delete："></a>delete：</h5><p>只删除数据，但是没有删除表结构，标识列不会清零</p>
+<p>语法：delete   from   表名</p>
+<h5 id="只删除一条数据："><a href="#只删除一条数据：" class="headerlink" title="只删除一条数据："></a>只删除一条数据：</h5><p>delete   from   表名   where  条件</p>
+<h5 id="truncate："><a href="#truncate：" class="headerlink" title="truncate："></a>truncate：</h5><p>只删除数据，但是没有删除表结构，标识列会清零</p>
+<p>语法：truncate   表名</p>
+<h5 id="drop："><a href="#drop：" class="headerlink" title="drop："></a>drop：</h5><p>直接删除表结构</p>
+<p>语法：drop  table  表名</p>
+<h5 id="只删除一条数据：-1"><a href="#只删除一条数据：-1" class="headerlink" title="只删除一条数据："></a>只删除一条数据：</h5><p>delete   from   表名   where  条件</p>
+<h4 id="三-改：update"><a href="#三-改：update" class="headerlink" title="三.改：update"></a>三.改：update</h4><p>语法：update  表名  set  要修改的列=修改的值   where   条件</p>
+<h4 id="四-查（重点）"><a href="#四-查（重点）" class="headerlink" title="四. 查（重点）"></a>四. 查（重点）</h4><h5 id="一切的根源："><a href="#一切的根源：" class="headerlink" title="一切的根源："></a>一切的根源：</h5><p>​    select   * from 表名                                    查询整表<br>​    select  列名 from  表名                               查询部分</p>
+<h5 id="关键字-：where-条件"><a href="#关键字-：where-条件" class="headerlink" title="关键字  ：where + 条件"></a>关键字  ：where + 条件</h5><h5 id="逻辑词的使用：and-or-not"><a href="#逻辑词的使用：and-or-not" class="headerlink" title="逻辑词的使用：and    or   not"></a>逻辑词的使用：and    or   not</h5><p>​        and ：并且<br>​        or:  或者<br>​        not:  非<br>​    案例：查询年龄在18-22之间的学生<br>​    in</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql第一章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">mysql增删改查操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-%E5%A2%9E%EF%BC%9Ainsert"><span class="nav-number">1.0.1.</span> <span class="nav-text">一.增：insert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C-%E5%88%A0%EF%BC%88%E5%88%A0%E9%99%A4%E6%9C%89%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E5%88%A0%E9%99%A4"><span class="nav-number">1.0.2.</span> <span class="nav-text">二.删（删除有三种方法可以删除)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#delete%EF%BC%9A"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">delete：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">只删除一条数据：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#truncate%EF%BC%9A"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">truncate：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#drop%EF%BC%9A"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">drop：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE%EF%BC%9A-1"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">只删除一条数据：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89-%E6%94%B9%EF%BC%9Aupdate"><span class="nav-number">1.0.3.</span> <span class="nav-text">三.改：update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B-%E6%9F%A5%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">1.0.4.</span> <span class="nav-text">四. 查（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E5%88%87%E7%9A%84%E6%A0%B9%E6%BA%90%EF%BC%9A"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">一切的根源：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97-%EF%BC%9Awhere-%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">关键字  ：where + 条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%AF%8D%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%9Aand-or-not"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">逻辑词的使用：and    or   not</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2021 Hero All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
