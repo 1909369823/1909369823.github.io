@@ -173,6 +173,135 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-linux"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/07/linux/">linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/07/linux/" class="article-date">
+	  <time datetime="2021-09-07T10:12:26.000Z" itemprop="datePublished">September 7, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="liunx概叙"><a href="#liunx概叙" class="headerlink" title="liunx概叙"></a>liunx概叙</h2><p>Linux是基于Unix的</p>
+<p>Linux是一种自由和开放源码的操作系统，存在着许多不同的Linux版本，但它们都使用了Linux内核。Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、台式计算机</p>
+<h2 id="liunx系统的应用"><a href="#liunx系统的应用" class="headerlink" title="liunx系统的应用"></a>liunx系统的应用</h2><p>服务器系统</p>
+<p>Web应用服务器、数据库服务器、接口服务器、DNS、FTP等等； </p>
+<p>嵌入式系统</p>
+<p>路由器、防火墙、手机、PDA、IP 分享器、交换器、家电用品的微电脑控制器等等，</p>
+<p>高性能运算、计算密集型应用</p>
+<p>Linux有强大的运算能力。</p>
+<p>桌面应用系统</p>
+<p>移动手持系统</p>
+<h2 id="liunx目录结构"><a href="#liunx目录结构" class="headerlink" title="liunx目录结构"></a>liunx目录结构</h2><p><img src="https://pic.imgdb.cn/item/61373bd844eaada739c62fc2.png"></p>
+<h3 id="一-liunx的目录"><a href="#一-liunx的目录" class="headerlink" title="一.liunx的目录"></a>一.liunx的目录</h3><p>cd  /：进入linux的根目录</p>
+<p>然后ll指令，下面图是linux的文件目录，linux中是一切皆文件</p>
+<p><img src="https://pic.imgdb.cn/item/61373ee144eaada739cb827d.png"></p>
+<h3 id="二-liunx基本指令"><a href="#二-liunx基本指令" class="headerlink" title="二.liunx基本指令"></a>二.liunx基本指令</h3><p><strong>文件列出命令</strong></p>
+<p>Ls:  列出当前目录里面所有的文件和文件夹</p>
+<p>Ll: 列出当前目录里面所有的文件和文件夹详细信息</p>
+<p>Ls  -a:列出所有文件和文件夹(包含隐藏文件)</p>
+<p><strong>访问命令</strong>：</p>
+<p>cd  文件夹名 ：访问某个文件夹</p>
+<p>cd  文件夹1/文件夹2</p>
+<p>cd  ../  返回上一级</p>
+<p> <strong>创建文件夹</strong>：</p>
+<p>Mkdir  文件夹名字</p>
+<p>Mkdir  -p  文件夹1/文件夹2/….</p>
+<p><strong>删除空文件夹</strong>：</p>
+<p>Rmdir  文件夹名</p>
+<p><strong>浏览文件的指令</strong></p>
+<p>Cat：访问的是文件的最后面的部分</p>
+<p>More: 访问文件，它会显示文件的百分比，按下空格键进行切换。</p>
+<p>Less: 访问文件内容：根据pgup和pgdn来进行上下翻页</p>
+<p>Tail:</p>
+<p>tail 文件名:访问文件</p>
+<p>tail -数字 文件名：访问后几行</p>
+<p><strong>删除命令</strong>：</p>
+<p>Rm 文件名   ——询问式删除</p>
+<p>Rm - rf  文件名  ——不询问式删除</p>
+<p>Rm  -rf  ./*    ——删除掉当前目录下面所有的文件和文件夹</p>
+<p>rm  -rf  *    自杀式删除</p>
+<p><strong>复制、粘贴</strong>：</p>
+<p>Cp  源文件  目标文件夹</p>
+<p><strong>剪切</strong>：</p>
+<p>Mv  源文件  目标文件夹</p>
+<p><strong>打包压缩、解压</strong></p>
+<p>Tar  -参数  压缩包名  ./*</p>
+<p><img src="https://pic.imgdb.cn/item/6137405544eaada739ce1682.png"></p>
+<p><strong>压缩</strong>：</p>
+<p>Tar  -czvf  X.gz  ./*</p>
+<p><strong>解压</strong>：</p>
+<p>Tar  -xvf  x.gz </p>
+<p><strong>创建文件编辑信息</strong>：</p>
+<p>Vi  文件名</p>
+<p>按下“i”键进入  insert模式</p>
+<p>输入文字</p>
+<p>保存：</p>
+<p>Esc  —&gt;输入“：wq”</p>
+<p>不保存：</p>
+<p>Esc—-&gt;输入“q!”</p>
+<p>Vi与vim大致相同！</p>
+<h3 id="三-把文件传输到linux服务器上面"><a href="#三-把文件传输到linux服务器上面" class="headerlink" title="三.把文件传输到linux服务器上面"></a>三.把文件传输到linux服务器上面</h3><p>使用ftp工具来传输</p>
+<p>ftp协议：文件传输协议</p>
+<p><img src="https://pic.imgdb.cn/item/6137412b44eaada739cf8a29.png"></p>
+<h3 id="四-在linux服务器上面安装jdk环境"><a href="#四-在linux服务器上面安装jdk环境" class="headerlink" title="四.在linux服务器上面安装jdk环境"></a>四.在linux服务器上面安装jdk环境</h3><p>①　把jdk的linux版本上传上去</p>
+<p>②　查询linux系统自带的版本</p>
+<p>Java  -version</p>
+<p>查询全部的jdk版本：</p>
+<p>rpm  -qa | grep  java</p>
+<p>③　卸载版本</p>
+<p>Rpm  -e  - -nodeps  版本号</p>
+<p>一条一条删除</p>
+<p>安装：</p>
+<p>在 usr/local/src里面创建一个java文件夹</p>
+<p>在上述java文件夹里面，把jdk的安装包传输过来</p>
+<p>解压jdk的文件</p>
+<ol>
+<li>安装依赖：yum install glibc.i686</li>
+</ol>
+<p>​     去修改配置文件  etc/profile   最后面加上下面这段</p>
+<p>#set java environment</p>
+<p>​    JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</p>
+<p>​    CLASSPATH=.:$JAVA_HOME/lib.tools.jar</p>
+<p>​    PATH=$JAVA_HOME/bin:$PATH</p>
+<p>​    export JAVA_HOME CLASSPATH PATH</p>
+<p>加载配置文件： source  etc/profile</p>
+<p>最后验证：java -version</p>
+<p><img src="https://pic.imgdb.cn/item/613741e744eaada739d0dbfe.png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-sql查询题"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1001,6 +1130,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/07/linux/">linux</a></h6>
+              <span>September 7, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/07/sql%E6%9F%A5%E8%AF%A2%E9%A2%98/">sql查询50道</a></h6>
               <span>September 7, 2021</span>
             </div>
@@ -1055,18 +1196,6 @@ var themeMenus = {};
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2021/09/02/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/">软件测试第二章：测试入门</a></h6>
-              <span>September 2, 2021</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1085,7 +1214,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
