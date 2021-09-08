@@ -33,10 +33,31 @@
 <meta property="og:image" content="https://pic.imgdb.cn/item/61373bd844eaada739c62fc2.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/61373ee144eaada739cb827d.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6137405544eaada739ce1682.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/613878fa44eaada739eff769.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6138792044eaada739f033c0.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61387aa844eaada739f315ee.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6137412b44eaada739cf8a29.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/613741e744eaada739d0dbfe.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6138692444eaada739d37a6a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/613869c344eaada739d49ab2.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/613869dc44eaada739d4c0b9.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386a6644eaada739d5a42d.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386ab744eaada739d63664.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386b3f44eaada739d72eda.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386b4a44eaada739d7442a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386baf44eaada739d800be.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386bdf44eaada739d84b3f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386c2144eaada739d8b844.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386c5144eaada739d919bc.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386c8544eaada739d97496.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386ccf44eaada739da020c.png">
+<meta property="og:image" content="c:/Users/hccz/AppData/Roaming/Typora/typora-user-images/image-20210908155746577.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386d2c44eaada739daa4fd.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386dc844eaada739dbe569.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61386dc844eaada739dbe569.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6138760644eaada739eadc2f.png">
 <meta property="article:published_time" content="2021-09-07T10:12:26.000Z">
-<meta property="article:modified_time" content="2021-09-07T10:41:57.675Z">
+<meta property="article:modified_time" content="2021-09-08T09:02:58.842Z">
 <meta property="article:author" content="hujun">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic.imgdb.cn/item/61373bd844eaada739c62fc2.png">
@@ -245,7 +266,8 @@ var themeMenus = {};
 <p>tail -数字 文件名：访问后几行</p>
 <p><strong>删除命令</strong>：</p>
 <p>Rm 文件名   ——询问式删除</p>
-<p>Rm - rf  文件名  ——不询问式删除</p>
+<p>Rm  - f  文件名  ——不询问式删除</p>
+<p>rm  -r  文件夹名——递归删除</p>
 <p>Rm  -rf  ./*    ——删除掉当前目录下面所有的文件和文件夹</p>
 <p>rm  -rf  *    自杀式删除</p>
 <p><strong>复制、粘贴</strong>：</p>
@@ -268,10 +290,38 @@ var themeMenus = {};
 <p>不保存：</p>
 <p>Esc—-&gt;输入“q!”</p>
 <p>Vi与vim大致相同！</p>
-<h3 id="三-把文件传输到linux服务器上面"><a href="#三-把文件传输到linux服务器上面" class="headerlink" title="三.把文件传输到linux服务器上面"></a>三.把文件传输到linux服务器上面</h3><p>使用ftp工具来传输</p>
+<p><strong>其他常用命令</strong>：</p>
+<p>pwd：显示当前所在目录</p>
+<p>touch：创建一个空文件                          示例： touch a.txt</p>
+<p>ll -h：友好显示文件大小</p>
+<p>wget：下载资料                        示例： wget <a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com</a></p>
+<h2 id="liunx权限命令"><a href="#liunx权限命令" class="headerlink" title="liunx权限命令"></a>liunx权限命令</h2><h4 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h4><p><img src="https://pic.imgdb.cn/item/613878fa44eaada739eff769.png"></p>
+<p><img src="https://pic.imgdb.cn/item/6138792044eaada739f033c0.png"></p>
+<h4 id="Linux三种文件类型："><a href="#Linux三种文件类型：" class="headerlink" title="Linux三种文件类型："></a>Linux三种文件类型：</h4><p>普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。 </p>
+<p> 目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。  </p>
+<p>设备文件： Linux系统把每一个设备都看成是一个文件</p>
+<h4 id="文件类型标识："><a href="#文件类型标识：" class="headerlink" title="文件类型标识："></a>文件类型标识：</h4><p>普通文件（-）</p>
+<p>目录（d）</p>
+<p>符号链接（l）</p>
+<p>* 进入etc可以查看，相当于快捷方式</p>
+<p>字符设备文件（c）</p>
+<p>块设备文件（s）</p>
+<p>套接字（s）</p>
+<p>命名管道（p）</p>
+<p><strong>文件管理权限：</strong></p>
+<p><img src="https://pic.imgdb.cn/item/61387aa844eaada739f315ee.png"></p>
+<p>linux系统中的<strong>755权限是指所有者拥有可读、可写、可执行权限</strong>，所属组与其他用户仅拥有可读与可执行权限。linux系统的权限一般是用1-3位数字代表文件所有者的权限，4-6位数字代表同组用户的权限，7-9位数字代表其他用户的权限。</p>
+<p><strong>以 755 为例：</strong></p>
+<p>● 1-3 位 7 等于 4+2+1，rwx，所有者具有读取、写入、执行权限； </p>
+<p>● 4-6 位 5 等于 4+1+0，r-x，同组用户具有读取、执行权限但没有写入权限； </p>
+<p>● 7-9 位 5，同上，也是 r-x，其他用户具有读取、执行权限但没有写入权限。</p>
+<h4 id="常用的linux文件权限："><a href="#常用的linux文件权限：" class="headerlink" title="常用的linux文件权限："></a>常用的<a target="_blank" rel="noopener" href="http://www.111cn.net/list-156/">linux</a>文件权限：</h4><p>444 r–r–r–<br>600 rw——-<br>644 rw-r–r–<br>666 rw-rw-rw-<br>700 rwx——<br>744 rwxr–r–<br>755 rwxr-xr-x<br>777 rwxrwxrwx</p>
+<p>从左至右，1-3位数字代表文件所有者的权限，4-6位数字代表同组用户的权限，7-9数字代表其他用户的权限。<br>而具体的权限是由数字来表示的，读取的权限等于4，用r表示；写入的权限等于2，用w表示；执行的权限等于1，用x表示；<br>通过4、2、1的组合，得到以下几种权限：0（没有权限）；4（读取权限）；5（4+1 | 读取+执行）；6（4+2 | 读取+写入）；7（4+2+1 | 读取+写入+执行）<br>以755为例：<br>1-3位7等于4+2+1，rwx，所有者具有读取、写入、执行权限；<br>4-6位5等于4+1+0，r-x，同组用户具有读取、执行权限但没有写入权限；<br>7-9位5，同上，也是r-x，其他用户具有读取、执行权限但没有写入权限。</p>
+<p>rwx权限数字解释<br>chmod也可以用数字来表示权限如 chmod 777 file<br>语法为：chmod abc file<br>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。<br>r=4，w=2，x=1<br>若要rwx属性则4+2+1=7；<br>若要rw-属性则4+2=6；<br>若要r-x属性则4+1=7。<br>范例：<br>chmod a=rwx file<br>和<br>chmod 777 file<br>效果相同<br>chmod ug=rwx,o=x file<br>和<br>chmod 771 file<br>效果相同<br>若用chmod 4755 filename可使此程序具有root的权限</p>
+<h2 id="三-把文件传输到linux服务器上面"><a href="#三-把文件传输到linux服务器上面" class="headerlink" title="三.把文件传输到linux服务器上面"></a>三.把文件传输到linux服务器上面</h2><p>使用ftp工具来传输</p>
 <p>ftp协议：文件传输协议</p>
 <p><img src="https://pic.imgdb.cn/item/6137412b44eaada739cf8a29.png"></p>
-<h3 id="四-在linux服务器上面安装jdk环境"><a href="#四-在linux服务器上面安装jdk环境" class="headerlink" title="四.在linux服务器上面安装jdk环境"></a>四.在linux服务器上面安装jdk环境</h3><p>①　把jdk的linux版本上传上去</p>
+<h2 id="四-在linux服务器上面安装jdk环境"><a href="#四-在linux服务器上面安装jdk环境" class="headerlink" title="四.在linux服务器上面安装jdk环境"></a>四.在linux服务器上面安装jdk环境</h2><p>①　把jdk的linux版本上传上去</p>
 <p>②　查询linux系统自带的版本</p>
 <p>Java  -version</p>
 <p>查询全部的jdk版本：</p>
@@ -295,6 +345,85 @@ var themeMenus = {};
 <p>加载配置文件： source  etc/profile</p>
 <p>最后验证：java -version</p>
 <p><img src="https://pic.imgdb.cn/item/613741e744eaada739d0dbfe.png"></p>
+<h2 id="在liunx上安装mysql"><a href="#在liunx上安装mysql" class="headerlink" title="在liunx上安装mysql"></a>在liunx上安装mysql</h2><p>准备：mysql(linux版本)</p>
+<p> 步骤：</p>
+<ol>
+<li><p>传上去，在usr/local/src 在这里创建一个mysql的文件夹</p>
+</li>
+<li><p>检测一下自己的系统是否自带mysql</p>
+<p>rpm -qa | grep mysql </p>
+</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/6138692444eaada739d37a6a.png"></p>
+<p>3.卸载掉自带的mysql版本</p>
+<p><img src="https://pic.imgdb.cn/item/613869c344eaada739d49ab2.png"></p>
+<p>4.在文件夹里面，解压mysql</p>
+<p><img src="https://pic.imgdb.cn/item/613869dc44eaada739d4c0b9.png"></p>
+<ol start="5">
+<li>安装server</li>
+</ol>
+<p>指令：rpm -ivh  MySQL-server-5.6.22-1.el6.i686.rpm</p>
+<p>直接提示安装成功</p>
+<p><img src="https://pic.imgdb.cn/item/61386a6644eaada739d5a42d.png"></p>
+<p>整个server就安装成功，在linux上面，把mysql的服务端装成功了。</p>
+<ol start="6">
+<li>安装client(客户端)</li>
+</ol>
+<p>安装成功的截图</p>
+<p><img src="https://pic.imgdb.cn/item/61386ab744eaada739d63664.png"></p>
+<p>服务和客户端安装完毕</p>
+<ol start="7">
+<li>查询mysql的服务状态</li>
+</ol>
+<p> 服务端与客户端安装完毕</p>
+<p> 查询mysql的服务的状态</p>
+<p>指令：service  mysql  status</p>
+<p><img src="https://pic.imgdb.cn/item/61386b3f44eaada739d72eda.png"></p>
+<p>说明服务没有启动，接着输入指令启动服务</p>
+<p>service mysql start</p>
+<p><img src="https://pic.imgdb.cn/item/61386b4a44eaada739d7442a.png"></p>
+<p>Mysql的服务启动成功</p>
+<p>8.使用root来登陆mysql(忽视)</p>
+<p><img src="https://pic.imgdb.cn/item/61386baf44eaada739d800be.png"></p>
+<ol start="9">
+<li>去找登陆密码：必须进入root目录里面来</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/61386bdf44eaada739d84b3f.png"></p>
+<p>​        root用户目录里面，去找一个隐藏文件</p>
+<p><img src="https://pic.imgdb.cn/item/61386c2144eaada739d8b844.png"></p>
+<p>10.使用查看隐藏文件的指令  ll -a</p>
+<p><img src="https://pic.imgdb.cn/item/61386c5144eaada739d919bc.png"></p>
+<p>11.使用vi编辑器去打开这个文件</p>
+<p> vi  .mysql_secret</p>
+<p><img src="https://pic.imgdb.cn/item/61386c8544eaada739d97496.png"></p>
+<p>12.使用mysql的root账户来登陆</p>
+<p>  mysql -uroot -p</p>
+<p><img src="https://pic.imgdb.cn/item/61386ccf44eaada739da020c.png"></p>
+<p>13.输入刚刚复制的密码，然后登陆成功。 Lyv87TDvlw_0hUSJ(是我的原始密码)</p>
+<p><img src="C:\Users\hccz\AppData\Roaming\Typora\typora-user-images\image-20210908155746577.png" alt="image-20210908155746577"></p>
+<p>14.登陆进来第一件事，改密码：</p>
+<p>修改root密码：SET PASSWORD = PASSWORD(‘123456’);</p>
+<p><img src="https://pic.imgdb.cn/item/61386d2c44eaada739daa4fd.png"></p>
+<p>密码修改成功，输入“exit;”退出</p>
+<p>15.把mysql加入到系统的自启动</p>
+<p>chkconfig –add mysql</p>
+<p>16.mysql自动启动</p>
+<p>chkconfig mysql on</p>
+<p>完成上述步骤，我们在linux上面安装好了mysql，mysql的服务也会随着linux系统启动而启动，但是它还不能支持远程访问。</p>
+<p>17.开启远程访问(必须登陆进去)</p>
+<p>A. 登陆到mysql当中去：  mysql -uroot -p</p>
+<p>B. 设置mysql的远程访问的规则：   </p>
+<p> grant all privileges on <em>.</em> to ‘root’ @’%’ identified by ‘123456’; </p>
+<p>​    Flush privileges;</p>
+<p><img src="https://pic.imgdb.cn/item/61386dc844eaada739dbe569.png"></p>
+<p>18.打开防火墙规则，开启mysql的3306端口（必须退出mysql的登陆状态）</p>
+<p>/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<p>/etc/init.d/iptables status</p>
+<p><img src="https://pic.imgdb.cn/item/61386dc844eaada739dbe569.png"></p>
+<p>完成这一步，我们基本上可以去远程来访问我们mysql服务了。</p>
+<p>19.使用Navicat工具远程连接mysql的服务:</p>
+<p><img src="https://pic.imgdb.cn/item/6138760644eaada739eadc2f.png"></p>
 
       
     </div>
@@ -366,7 +495,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E6%A6%82%E5%8F%99"><span class="nav-number">1.</span> <span class="nav-text">liunx概叙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">liunx系统的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">liunx目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-liunx%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.1.</span> <span class="nav-text">一.liunx的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-liunx%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">二.liunx基本指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-%E6%8A%8A%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%88%B0linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2"><span class="nav-number">3.3.</span> <span class="nav-text">三.把文件传输到linux服务器上面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B-%E5%9C%A8linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85jdk%E7%8E%AF%E5%A2%83"><span class="nav-number">3.4.</span> <span class="nav-text">四.在linux服务器上面安装jdk环境</span></a></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E6%A6%82%E5%8F%99"><span class="nav-number">1.</span> <span class="nav-text">liunx概叙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">liunx系统的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">liunx目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-liunx%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.1.</span> <span class="nav-text">一.liunx的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-liunx%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">二.liunx基本指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liunx%E6%9D%83%E9%99%90%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">liunx权限命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">4.0.1.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E4%B8%89%E7%A7%8D%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-number">4.0.2.</span> <span class="nav-text">Linux三种文件类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AF%86%EF%BC%9A"><span class="nav-number">4.0.3.</span> <span class="nav-text">文件类型标识：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%EF%BC%9A"><span class="nav-number">4.0.4.</span> <span class="nav-text">常用的linux文件权限：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E6%8A%8A%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%88%B0linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">三.把文件传输到linux服务器上面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%9C%A8linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85jdk%E7%8E%AF%E5%A2%83"><span class="nav-number">6.</span> <span class="nav-text">四.在linux服务器上面安装jdk环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8liunx%E4%B8%8A%E5%AE%89%E8%A3%85mysql"><span class="nav-number">7.</span> <span class="nav-text">在liunx上安装mysql</span></a></li></ol>
     
     </div>
   </aside>
