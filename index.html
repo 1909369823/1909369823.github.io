@@ -173,6 +173,77 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-http协议"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/08/http%E5%8D%8F%E8%AE%AE/">http协议</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/08/http%E5%8D%8F%E8%AE%AE/" class="article-date">
+	  <time datetime="2021-09-08T09:52:17.000Z" itemprop="datePublished">September 8, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="http协议简介"><a href="#http协议简介" class="headerlink" title="http协议简介"></a>http协议简介</h2><p>（1）<strong>超文本传输协议</strong>（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的 一种<strong>网络协议</strong>。所有的 WWW 文件都必须遵守这个标准。设计 HTTP 最初的目的是为了 提供一种发布和接收 <strong>HTML(超文本标记语言) 页面</strong>的方法。 </p>
+<p><strong>HTTP 协议在网络 OSI 模型中属于应用层协议</strong>，应用层协议除了 HTTP 还有：FTP， SMTP，DNS，RIP，Telnet 等。 </p>
+<p>HTTP 协议工作于<strong>客户端—服务端</strong>架构上。浏览器作为 HTTP 客户端通过 **URL(网址)**向 HTTP 服务端（即 Web 服务器） 发送请求。 </p>
+<h4 id="（2）什么是超文本？"><a href="#（2）什么是超文本？" class="headerlink" title="（2）什么是超文本？"></a>（2）什么是超文本？</h4><p>超文本英文名称叫做 Hypertext，我们在<strong>浏览器里面看到的网页就是超文本解析而成的</strong>， 其网页源代码是一系 列 HTML 代码，里面包含了一系列标签，如 img 显示图片，p 指定显示段落等，浏览器解析这些标签后便形成了我们平常看到的网页，而这网页的源代码 HTML ，就可以称作超文本。 例如我们在 Chrome 浏览器里面打开如百度页面，右键点击”查看源代码”，这些源代 码都是超文本。</p>
+<h4 id="（3）什么是URL？"><a href="#（3）什么是URL？" class="headerlink" title="（3）什么是URL？"></a>（3）什么是URL？</h4><p><strong>我们在浏览器的地址栏里输入的网站地址叫做 URL</strong>（Uniform Resource Locator，统一资源定位符)。就像每家每 户都有一个门牌地址一样，每个网页也都有一个 Internet 地 址（如：<a target="_blank" rel="noopener" href="http://www.baidu.com)./">http://www.baidu.com）。</a> </p>
+<h4 id="（4）-http功能"><a href="#（4）-http功能" class="headerlink" title="（4） http功能"></a>（4） http功能</h4><p>HTTP 协议（HyperText Transfer Protocol，超文本传输协议）是用于<strong>从服务器传输 超文本到本地浏览器</strong>的传输协议。 </p>
+<h4 id="5-http的特点"><a href="#5-http的特点" class="headerlink" title="(5) http的特点"></a>(5) http的特点</h4><p><strong>无连接</strong>：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户端的请求，并收到 客户端的应答后， 即断开连接。采用这种方式可以节省传输时间。 </p>
+<p><strong>媒体独立</strong>：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可 以通过 HTTP 发送。客户端以及服务器指定使用适合的 MIME-type 来传输。</p>
+<p><strong>无状态</strong>：HTTP 协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。如果服务 器不需要先前信 息，那么它的应答就比较快。但是缺少状态意味着如果后续处理需要前面 的信息，则它必须重传，这样可 能导致每次连接传送的数据量增大，此时可以设置缓存。 </p>
+<h4 id="6-http与https的区别？"><a href="#6-http与https的区别？" class="headerlink" title="(6) http与https的区别？"></a>(6) http与https的区别？</h4><p>HTTPS 的全称是 Hyper Text Transfer Protocol over Secure Socket Layer，是以 安全为目标的 HTTP 通道，简单讲是 HTTP 的安全版，即 HTTP 下加入 SSL 层（Secure Sockets Layer 安全套接层），简称为 HTTPS。 </p>
+<p><strong>HTTPS 的安全基础是 SSL，因此通过它传输的内容都是经过 SSL 加密的，它的主要作用可以分为两种：</strong></p>
+<ol>
+<li><p>是建立一个信息安全通道，来保证数据传输的安全。 </p>
+</li>
+<li><p>确认网站的真实性，凡是使用了 https 的网站，都可以通过点击浏览器地址栏的锁头标 志来查看网站认证之 后的真实信息，也可以通过 CA 机构颁发的安全签章来查询。现在越来越多的网站和 APP 都已经向 HTTPS 方向发展。例如：谷歌从 2017 年 1 月推出的 Chrome 56 开始， 对未进行 HTTPS 加密的网址链接亮出风险提示，即在地址栏的显著位置提醒用户“此网页不安全”。 </p>
+</li>
+</ol>
+<h4 id="7-http与TCP-IP的特点："><a href="#7-http与TCP-IP的特点：" class="headerlink" title="7.http与TCP/IP的特点："></a>7.http与TCP/IP的特点：</h4><p>TCP/IP 协议是传输层协议，主要解决数据如何在网络中传输，而 HTTP 是应用层协 议，主要解决如何包装数据。 </p>
+<h3 id="http的请求"><a href="#http的请求" class="headerlink" title="http的请求"></a>http的请求</h3><p>我们在浏览器输入百度首页的地址：<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a> 输入之后浏览器会给 我们打开百度首页。 实际上这 个过程是浏览器向网站所在的服务器发送了一个 Request，即请求，网站服 务器接收到这个 Request 之后进行处 理和解析，然后返回对应的一个 Response，即响 应，然后传回给浏览器，Response 里面就包含了页面的源代码等内容，浏览器再对其进行解析便将网页呈现了出来。 </p>
+<p><img src="https://pic.imgdb.cn/item/61388da344eaada73911cf23.png"></p>
+<p>列如，使用火狐浏览器，打开百度，查看页面的请求过程。 </p>
+<p>需要详细步骤，点击这边： </p>
+<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/428894531624967852.html">https://zhidao.baidu.com/question/428894531624967852.html</a></p>
+<p><img src="https://pic.imgdb.cn/item/61388de544eaada7391225ce.png"></p>
+<h4 id="1-请求的四部分"><a href="#1-请求的四部分" class="headerlink" title="(1)请求的四部分"></a>(1)请求的四部分</h4><p>•Request Method: 请求方式 </p>
+<p>•Request URL: 请求链接 </p>
+<p>•Request Headers: 请求头 </p>
+<p>•Request Body: 请求体 </p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-wireshark的使用"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1203,63 +1274,12 @@ var themeMenus = {};
     
 
   
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+
+
+  <nav id="page-nav">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2021/08/30/hello-world/" class="article-date">
-	  <time datetime="2021-08-30T10:35:45.224Z" itemprop="datePublished">August 30, 2021</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-    
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next</a>
+  </nav>
 
 </section>
           <aside id="sidebar">
@@ -1384,6 +1404,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/08/http%E5%8D%8F%E8%AE%AE/">http协议</a></h6>
+              <span>September 8, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/08/wireshark%E7%9A%84%E4%BD%BF%E7%94%A8/">wireshark的使用</a></h6>
               <span>September 8, 2021</span>
             </div>
@@ -1438,18 +1470,6 @@ var themeMenus = {};
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%B8%80%E7%AB%A0/">mysql第一章</a></h6>
-              <span>September 7, 2021</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1468,7 +1488,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
