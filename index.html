@@ -173,6 +173,215 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-jemter做接口测试"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/09/09/jemter%E5%81%9A%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">jemter做接口测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2021/09/09/jemter%E5%81%9A%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" class="article-date">
+	  <time datetime="2021-09-09T03:58:49.000Z" itemprop="datePublished">September 9, 2021</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Jmeter做接口测试"><a href="#Jmeter做接口测试" class="headerlink" title="Jmeter做接口测试"></a>Jmeter做接口测试</h2><h5 id="Jmeter脚本编写一般分五个步骤"><a href="#Jmeter脚本编写一般分五个步骤" class="headerlink" title="Jmeter脚本编写一般分五个步骤:"></a>Jmeter脚本编写一般分五个步骤:</h5><ol>
+<li><p>添加线程组</p>
+</li>
+<li><p>添加 http 请求</p>
+</li>
+<li><p>在 http 请求中写入接入 url、路径、请求方式和参数</p>
+</li>
+<li><p>添加查看结果树</p>
+</li>
+<li><p>调用接口、查看返回值</p>
+</li>
+</ol>
+<p>本次用来测试的接口地址的api：<a target="_blank" rel="noopener" href="http://httpbin.org/">httpbin.org</a></p>
+<h4 id="一、实施1-2步骤："><a href="#一、实施1-2步骤：" class="headerlink" title="一、实施1-2步骤："></a>一、实施1-2步骤：</h4><p>添加线程组、http请求</p>
+<p><img src="https://pic.imgdb.cn/item/6139a6a644eaada739963204.png"></p>
+<h4 id="二、配置http请求的相关参数"><a href="#二、配置http请求的相关参数" class="headerlink" title="二、配置http请求的相关参数"></a>二、配置http请求的相关参数</h4><p>在 http 请求中写入接入 url、路径、请求方式和参数，当前选择请求的方式为GET方式。</p>
+<p><img src="https://pic.imgdb.cn/item/6139a70844eaada73996faf0.png"></p>
+<h4 id="三、调用接口，查看返回值"><a href="#三、调用接口，查看返回值" class="headerlink" title="三、调用接口，查看返回值"></a>三、调用接口，查看返回值</h4><ol>
+<li><p>添加查看结果树</p>
+</li>
+<li><p>调用接口，得到返回值</p>
+</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/6139a75e44eaada739977999.png"></p>
+<h4 id="四，请求方式改为post方式来进行请求"><a href="#四，请求方式改为post方式来进行请求" class="headerlink" title="四，请求方式改为post方式来进行请求"></a>四，请求方式改为post方式来进行请求</h4><p>改为post进行测试，得到的响应数据</p>
+<p><img src="https://pic.imgdb.cn/item/6139dca244eaada7390fc46a.png"></p>
+<h4 id="五，http请求默认值"><a href="#五，http请求默认值" class="headerlink" title="五，http请求默认值"></a>五，http请求默认值</h4><p>通过上面两个请求我们发现，Web 服务器中的协议和服务器名称或 IP 这两个值都是一样，每次重复输入其实比较麻烦，因此我们可以使用 HTTP 请求默认值来管理这些公共的配置数据。</p>
+<p>添加步骤：</p>
+<p>线程组——添加——配置元件——HTTP 请求默认值 </p>
+<p>然后进行如下配置，并把该元件放置到请求前面。</p>
+<p><img src="https://pic.imgdb.cn/item/6139dcef44eaada7391024d6.png"></p>
+<p>经过请求默认值的配置后，后续我们增加新的请求，如果这两项值是一样的话，那么则无需再重复填入该值。</p>
+<h4 id="六，断言设置"><a href="#六，断言设置" class="headerlink" title="六，断言设置"></a>六，断言设置</h4><p><strong>Jmeter 可以针对每一个请求响应进行断言。</strong></p>
+<p>设置步骤:</p>
+<p>选中一个请求，如 http-get,然后右键选择：</p>
+<p><strong>添加——断言——响应断言。</strong></p>
+<p><img src="https://pic.imgdb.cn/item/6139dd5444eaada73910b8d0.png"></p>
+<p>各个匹配模式含义如下</p>
+<p>包括：响应内容包括需要匹配的内容即代表响应成功，支持正则表达式</p>
+<p>匹配：响应内容要完全匹配需要匹配的内容即代表响应成功，大小写不敏感，支持正则表达式。</p>
+<p>Equals：响应内容要完全等于需要匹配的内容才代表成功，大小写敏感，需要匹配的内容是字符串正则表达式</p>
+<p>Substring：返回结果包含指定结果的字串，但是 subString 不支持正则字符串</p>
+<p>如下图所示匹配返回的字符串是否包含：<a target="_blank" rel="noopener" href="http://httpbin.org/get">http://httpbin.org/get</a></p>
+<p>如果断言成功，则查看结果树为绿色标志，如果断言失败则为红色显示，如下图所示：</p>
+<p><img src="https://pic.imgdb.cn/item/6139ddac44eaada739112ddf.png"></p>
+<h4 id="七，参数设置"><a href="#七，参数设置" class="headerlink" title="七，参数设置"></a>七，参数设置</h4><p>Jmeter 支持通过 Query String Parameters 或者 Request body 请求体来传递参数。</p>
+<p><strong>Query  String   Parameters</strong></p>
+<p>如果希望在请求 URL 中添加参数，则可以在 Http 请求界面的 Parameters 选项里面添加参数。该参数会通过 Query String Parameters 方式传递给服务器，也就是在 URL 中传递参数。 如下图如所示设置参数：</p>
+<p><img src="https://pic.imgdb.cn/item/6139de1444eaada73911b6ca.png"></p>
+<p><strong>Request   body</strong></p>
+<p>在 Post 请求中参数一般在 body 中传递，Jmeter 也支持在 body 中传递参数。如传递 Json 格式的参数，在 BodyData 编辑框输入如下参数：</p>
+<p>{“username”:”Test1234”}</p>
+<p><img src="C:\Users\hccz\AppData\Roaming\Typora\typora-user-images\image-20210909181352243.png" alt="image-20210909181352243"></p>
+<p>另外还需要指定参数的格式，因此需要添加 HTTP 信息头</p>
+<p>添加步骤：</p>
+<p>选定请求——添加——配置元件——HTTP 信息头管理器，然后在管理器里面添加参数类型</p>
+<p>Content-Type ：application/json 如下图所示：</p>
+<p><img src="https://pic.imgdb.cn/item/6139dea244eaada739126e6c.png"></p>
+<h4 id="八，变量"><a href="#八，变量" class="headerlink" title="八，变量"></a>八，变量</h4><p>在请求过程中，有时我们需要在请求中设置一些变量来测试不同的场景。</p>
+<p>Jmeter 支持以下类型变量：</p>
+<ol>
+<li><p>用户自定义变量</p>
+</li>
+<li><p>函数生成变量</p>
+</li>
+<li><p>数据文件变量</p>
+</li>
+</ol>
+<h5 id="1-用户自定义变量"><a href="#1-用户自定义变量" class="headerlink" title="(1) 用户自定义变量"></a>(1) 用户自定义变量</h5><p>设置步骤: 选中请求——添加——前置处理器——用户参数 设置变量名称为 user，值为 Test1234</p>
+<p><img src="https://pic.imgdb.cn/item/6139df1444eaada7391307aa.png"></p>
+<p>在请求时引用变量如下所示: 变量引用格式为：${user}</p>
+<p><img src="https://pic.imgdb.cn/item/6139df3944eaada7391337bf.png"></p>
+<h4 id="2-函数生成变量"><a href="#2-函数生成变量" class="headerlink" title="(2)函数生成变量"></a>(2)函数生成变量</h4><p>Jmeter 有许多内置的函数，可以生成随机数。</p>
+<p>创建步骤:</p>
+<p>点击菜单栏选项——函数助手对话框——下拉选择__Random()函数 函数配置如下：</p>
+<p><img src="https://pic.imgdb.cn/item/6139df8c44eaada73913b23d.png"></p>
+<h5 id="3-CSV数据文件变量"><a href="#3-CSV数据文件变量" class="headerlink" title="(3)CSV数据文件变量"></a>(3)CSV数据文件变量</h5><p>CSV 数据文件变量是指从外部 csv 文件读取数据出来作为变量。</p>
+<p>设置步骤: </p>
+<p>选择请求——添加——配置元件——CSV 数据文件设置</p>
+<p>创建 csv 文件:  注意文件编码为 UTF-8 文件内容如下：</p>
+<p>Test1234,Test1234</p>
+<p>data.csv</p>
+<p>CSV 数据文件设置如下：</p>
+<p><img src="https://pic.imgdb.cn/item/6139dfe444eaada739143862.png"></p>
+<p>在 Post 请求中引用变量数据如下：</p>
+<p><img src="C:\Users\hccz\AppData\Roaming\Typora\typora-user-images\image-20210909182059478.png" alt="image-20210909182059478"></p>
+<p>得到的请求数据</p>
+<p>GET <a target="_blank" rel="noopener" href="http://httpbin.org/?user=Test1234&amp;pwd=Test1234">http://httpbin.org/?user=Test1234&amp;pwd=Test1234</a></p>
+<p>GET data:</p>
+<p>Test1234Test1234{“username”:”Test1234”}</p>
+<p>[no cookies]</p>
+<h5 id="4-csv参数化"><a href="#4-csv参数化" class="headerlink" title="(4)csv参数化"></a>(4)csv参数化</h5><p>针对之前的 POST 接口进行如下参数遍历测试： </p>
+<p>接口如下： </p>
+<p><a target="_blank" rel="noopener" href="http://httpbin.org/post">http://httpbin.org/post</a> </p>
+<p> 发送参数：user1.csv</p>
+<p>user1,user1</p>
+<p>user2,user2</p>
+<p>user3,user3</p>
+<p>在之前的 csv 数据文件设置需要需改配置如下：</p>
+<p>表示把所有数据读取一遍，且不重复。 </p>
+<p><img src="https://pic.imgdb.cn/item/6139e06b44eaada73914fd10.png"></p>
+<p>读取的数据：</p>
+<p><img src="https://pic.imgdb.cn/item/6139e08f44eaada739153088.png"></p>
+<h4 id="九，用例分离"><a href="#九，用例分离" class="headerlink" title="九，用例分离"></a>九，用例分离</h4><h5 id="用例设计"><a href="#用例设计" class="headerlink" title="用例设计"></a>用例设计</h5><p>之前我们的用例数据都是配置在 Jmeter Http 请求中，每次需要增加，修改用例都需要打开 jmeter 重新编辑，当 用例越来越多的时候，用例维护起来就越来越麻烦，有没有好的方法来解决这种情况呢？ </p>
+<p>其实我们可以将用例的数据存放在 csv 文件中，然后通过 csv 文件配置来读取用例中的数据，执行测试。用例数据如图所示：</p>
+<p><img src="https://pic.imgdb.cn/item/6139e0da44eaada739159184.png"></p>
+<p>用例名称变量含义：</p>
+<p>1．${caseSeq}:用例编号</p>
+<p>2．${apiType}:api 类型</p>
+<p>3．${apiSeq} ：api 版本号</p>
+<p>4．${apiName}：api 名称</p>
+<p>5．${priority}:优先级</p>
+<p>6．${url}:api 路径</p>
+<p>7．${methods}:请求方法</p>
+<p>8．${parameter}: 请求参数</p>
+<p>9．${expectValue}:期望值，用于断言</p>
+<h5 id="Jmeter设置步骤："><a href="#Jmeter设置步骤：" class="headerlink" title="Jmeter设置步骤："></a>Jmeter设置步骤：</h5><h5 id="1-新建一个线程组，命名为：数据驱动"><a href="#1-新建一个线程组，命名为：数据驱动" class="headerlink" title="1.新建一个线程组，命名为：数据驱动"></a>1.新建一个线程组，命名为：数据驱动</h5><p><img src="https://pic.imgdb.cn/item/6139e12d44eaada739160578.png"></p>
+<h5 id="2-创建一个-http-请求默认值，设置如下："><a href="#2-创建一个-http-请求默认值，设置如下：" class="headerlink" title="2.创建一个 http 请求默认值，设置如下："></a>2.创建一个 http 请求默认值，设置如下：</h5><p><img src="https://pic.imgdb.cn/item/6139e15f44eaada739164647.png"></p>
+<h5 id="3-添加一个循环控制器"><a href="#3-添加一个循环控制器" class="headerlink" title="3.添加一个循环控制器"></a>3.添加一个循环控制器</h5><p>步骤为：线程组——添加——逻辑控制器——循环控制器。 </p>
+<p>循环控制器的作用可以控制整个用例循环执行的次数。默认值是 1 根据用例数量可以修改为 4</p>
+<p><img src="https://pic.imgdb.cn/item/6139e1a944eaada73916b11a.png"></p>
+<h5 id="4-在循环控制器节点下创建-CSV-文件设置，具体配置内容如下——注意csv文件为上面的用例设计这步"><a href="#4-在循环控制器节点下创建-CSV-文件设置，具体配置内容如下——注意csv文件为上面的用例设计这步" class="headerlink" title="4.在循环控制器节点下创建 CSV 文件设置，具体配置内容如下——注意csv文件为上面的用例设计这步"></a>4.在循环控制器节点下创建 CSV 文件设置，具体配置内容如下——注意csv文件为上面的用例设计这步</h5><p><img src="https://pic.imgdb.cn/item/6139e1da44eaada73916f213.png"></p>
+<h5 id="5-创建一个-if-控制器"><a href="#5-创建一个-if-控制器" class="headerlink" title="5.创建一个 if 控制器"></a>5.创建一个 if 控制器</h5><p>步骤为：循环控制器——添加——逻辑控制器——if 控制器</p>
+<p>if 控制器的作用为根据不同条件执行不同的用例，例如这里根据不同的接口请求类型，分别创建了 GET 和 POST 两个控制器。</p>
+<p>GET 设置的条件语句如下：</p>
+<p>条件语句为：**”${methods}”==”GET”   其中${methods}表示引用 csv 中的methods中的值**。</p>
+<p><img src="https://pic.imgdb.cn/item/6139e29044eaada739181853.png"></p>
+<p>参数：</p>
+<p>• Interpret Condition as Variable Expression?：如果这个选项被选中，将不会使用 js 解析;条件表达式的值必须是 true(忽略大小写)，这里我们取消勾选状态。</p>
+<p>Evaluate for all children：如果选中这一项，在每个子结点执行前都会计算表达式</p>
+<h5 id="6-创建-GET-请求类型的用例如下"><a href="#6-创建-GET-请求类型的用例如下" class="headerlink" title="6.创建 GET 请求类型的用例如下:"></a>6.创建 GET 请求类型的用例如下:</h5><p><img src="https://pic.imgdb.cn/item/6139e2cf44eaada739187577.png"></p>
+<h5 id="7-POST请求设置：POST-条件语句设置为：”-methods-”-”POST”"><a href="#7-POST请求设置：POST-条件语句设置为：”-methods-”-”POST”" class="headerlink" title="7.POST请求设置：POST 条件语句设置为：”${methods}”==”POST”"></a>7.POST请求设置：POST 条件语句设置为：”${methods}”==”POST”</h5><p><img src="https://pic.imgdb.cn/item/6139e30b44eaada73918c95e.png"></p>
+<p><img src="https://pic.imgdb.cn/item/6139e32f44eaada73918fd46.png"></p>
+<p>用例名称格式：${caseSeq}_ ${apiSeq}_${apiName} </p>
+<p>断言设置如下：${expectValue}引用 csv 中对应的值。</p>
+<h5 id="十，测试报告"><a href="#十，测试报告" class="headerlink" title="十，测试报告"></a>十，测试报告</h5><p>批量执行完接口测试之后，我们需要查看测试报告，在之前单个接口调试我们是通过查看结果树查看结果，但是当大 </p>
+<p>批量执行接口测试之后依旧这样查看那么肯定会很低效 那么该如何设置呢？ </p>
+<h5 id="聚合报告"><a href="#聚合报告" class="headerlink" title="聚合报告"></a>聚合报告</h5><p>聚合报告是一个比较精简的报告元件，可以查看每个接口的性能情况与执行结果。 设置步骤：选中线程组——添 </p>
+<p>加——监听器——聚合报告。报告各个参数含义如下： </p>
+<p>• Samples – 本次场景中一共完成了多少个请求 </p>
+<p>• Average – 平均响应时间(单位：ms) </p>
+<p>• Median – 响应时间的中值(单位：ms) </p>
+<p>• 90% Line – 所有请求中 90%的响应时间。 </p>
+<p>• Min – 最小响应时间(单位：ms) </p>
+<p>• Max – 最大响应时间(单位：ms) </p>
+<p>• Error – 出错率 </p>
+<p>• Troughput – 吞吐量 </p>
+<p>• Received–响应数据大小 </p>
+<p>• KB/sec – 以流量做衡量的吞吐量 </p>
+<h5 id="HTML-报告"><a href="#HTML-报告" class="headerlink" title="HTML 报告"></a>HTML 报告</h5><p>有时候我们需要将测试报告以 HTML 附件形式发送给各个项目成员，那么需要生成 HTML 报告。 JMeter3.0 以后引入了 Dashboard Report，用于生成 HTML 页面格式图形化报告的扩展模块。 </p>
+<p>生成步骤： </p>
+<p>打开 cmd 进入 jmeter 目录 bin 目录 </p>
+<p>执行命令： </p>
+<p>jmeter -n -t httpbin_test.jmx -l httpbin.jtl -e -o  C:\Users\Administrator\Desktop\Report</p>
+<p>命令的参数：</p>
+<p>-n ：以非 GUI 形式运行 Jmeter </p>
+<p>-t ：jmeter 脚本路径 </p>
+<p>-l ：result.jtl 运行结果保存路径（.jtl）此文件必须不存在。 </p>
+<p>-e ：在脚本运行结束后生成 html 报告 </p>
+<p>-o ：用于存放 html 报告的目录，不加该参数默认生成到 </p>
+<h5 id="参考拓展资料"><a href="#参考拓展资料" class="headerlink" title="参考拓展资料"></a>参考拓展资料</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhizunyu2009/article/details/79011413">https://blog.csdn.net/zhizunyu2009/article/details/79011413</a> </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gld824125233/article/details/52842914">https://blog.csdn.net/gld824125233/article/details/52842914</a> </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/defonds/article/details/53517247">https://blog.csdn.net/defonds/article/details/53517247</a> </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wuyou10206/article/details/77539791">https://blog.csdn.net/wuyou10206/article/details/77539791</a> </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/huangjuyan/article/details/52993758">https://blog.csdn.net/huangjuyan/article/details/52993758</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/imyalost/p/10239317.html">https://www.cnblogs.com/imyalost/p/10239317.html</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-http协议"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1188,92 +1397,6 @@ var themeMenus = {};
     
 
   
-    <article id="post-软件测试第一章：计算机技术基础"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/09/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">软件测试第一章：计算机技术基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2021/09/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" class="article-date">
-	  <time datetime="2021-09-01T11:35:22.000Z" itemprop="datePublished">September 1, 2021</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Dos命令"><a href="#Dos命令" class="headerlink" title="Dos命令"></a>Dos命令</h2><h3 id="（1）为什么学习dos命令"><a href="#（1）为什么学习dos命令" class="headerlink" title="（1）为什么学习dos命令"></a>（1）为什么学习dos命令</h3><p>1、DOS能够Windows下无法完成的任务，例如对硬盘的初始化，CHOST下系统的恢复和备份。</p>
-<p>2、能够更加高效的对Windows进行管理，例如通过Ping命令来了解网络的连通状况。</p>
-<p>3、当Windows出现故障时，通过DOS能更加快速的对其进行修复等。  </p>
-<h3 id="（2）常见dos命令"><a href="#（2）常见dos命令" class="headerlink" title="（2）常见dos命令"></a>（2）常见dos命令</h3><p>1、返回上级目录：cd..  (相当于按后退按钮)      </p>
-<p>2、返回根目录：   cd\     </p>
-<p>3、切换相应的盘符：    </p>
-<p>4、创建文件夹：md 文件夹名字                                   </p>
-<p>5、进入到一个文件夹里面：cd 文件夹名    </p>
-<p>6、创建文件：copy con 文件名  （一定要有后缀  例如:a.txt）回车 F6 再回车     </p>
-<p>7、编辑文件：edit 文件名      </p>
-<p>8、删除文件：del 文件名     </p>
-<p>9、复制文件：copy 文件名 目标位置      </p>
-<p>10、移动文件（相当于剪切）：move 文件名 目标位置  </p>
-<p>11、删除文件夹：rd /s 文件夹名      </p>
-<p>12、清屏命令：cls     </p>
-<p>13、格式化磁盘：format 盘符：/fs:文件格式(FAT FAT32 NTFS)</p>
-<p>​    U盘: fat32</p>
-<p>​    本地磁盘:ntfs</p>
-<p>​    移动硬盘:ntfs    </p>
-<p>​    format f: /fs:ntfs</p>
-<p>14、查看文件夹信息：dir          </p>
-<p>15、重命名：ren 旧名字 新名字 </p>
-<h3 id="3-网络类型"><a href="#3-网络类型" class="headerlink" title="(3)网络类型"></a>(3)网络类型</h3><ol>
-<li><p>局域网：局限在小的地理区域内或单独的建筑物内范围（几十米～几公里），传输速度快、连接设备为双绞线、集线器、交换机等</p>
-</li>
-<li><p>城域网：规模局限在一个城市的范围内区域(几公里～几十公里)，连接设备为光纤、路由器。</p>
-</li>
-<li><p>Internet(因特网) ：一个巨大的网络集合，Internet提供的常见的服务为：远程登录、文件传输、电子邮件、WWW（万维网）等。</p>
-</li>
-</ol>
-<h3 id="（4）ip地址分类"><a href="#（4）ip地址分类" class="headerlink" title="（4）ip地址分类"></a>（4）ip地址分类</h3><p>​                                                           网络id范围</p>
-<p>A类：网络   主机   主机   主机         1~126</p>
-<p>B类：网络   网络   主机   主机         128~191</p>
-<p>C类：网络   网络   网络   主机          192~223</p>
-<p>D类：用于组播通信                           224~239</p>
-<p>E类：用于科研                                    240~255</p>
-<h4 id="1-特殊的ip地址"><a href="#1-特殊的ip地址" class="headerlink" title="1.特殊的ip地址"></a>1.特殊的ip地址</h4><p>0.0.0.0：本机</p>
-<p>127.0.0.1：本机回环地址，用于本机测试</p>
-<p>255.255.255.255：当前子网，一般用于向当前子网广播信息</p>
-<h4 id="2-子网掩码"><a href="#2-子网掩码" class="headerlink" title="2.子网掩码"></a>2.子网掩码</h4><p>A类默认子网掩码：255.0.0.0</p>
-<p>B类默认子网掩码：255.255.0.0</p>
-<p>C类默认子网掩码：255.255.255.0</p>
-<p>3.类别</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-    
-
-  
 
 
   <nav id="page-nav">
@@ -1404,6 +1527,18 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/09/09/jemter%E5%81%9A%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">jemter做接口测试</a></h6>
+              <span>September 9, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2021/09/08/http%E5%8D%8F%E8%AE%AE/">http协议</a></h6>
               <span>September 8, 2021</span>
             </div>
@@ -1458,18 +1593,6 @@ var themeMenus = {};
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2021/09/07/mysql%E7%AC%AC%E4%BA%8C%E7%AB%A0/">mysql第二章</a></h6>
-              <span>September 7, 2021</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1488,7 +1611,7 @@ var themeMenus = {};
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
